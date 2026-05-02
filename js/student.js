@@ -38,7 +38,8 @@ function setActionBox(msg, type = "") {
   if (!box) return;
 
   box.textContent = msg;
-  box.style.borderColor = type === "err" ? "var(--pink)" : type === "ok" ? "var(--green)" : "#24496f";
+  box.style.borderColor =
+    type === "err" ? "var(--color-danger-border)" : type === "ok" ? "var(--color-case-border)" : "var(--color-border)";
 }
 
 function escapeHtml(value) {
@@ -47,6 +48,15 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function normalizeTeamName(value) {
+  return String(value || "").trim().replace(/\s+/g, " ");
+}
+
+function findTeamByName(teamDocs, name) {
+  const normalizedName = normalizeTeamName(name);
+  return teamDocs.find((item) => normalizeTeamName(item.data().name) === normalizedName);
 }
 
 function bindStudentTabs() {
@@ -114,7 +124,7 @@ function renderActionCards() {
       (action) => `<div class="action" data-action="${action.name}">
         <div class="action-main">
           <div class="action-head">
-            <span>${action.icon} <b>${action.name}</b></span>
+            <span><b>${action.name}</b></span>
             <small>${action.phase}</small>
           </div>
           <span class="muted">${action.summary}</span>
@@ -159,6 +169,16 @@ function setStudentSubmitState(message, variant = "wait") {
   box.textContent = message;
 }
 
+function submitPromptForPhase(phase) {
+  if (phase === "외교 페이즈") {
+    return "외교 행동 카드도 이번 턴 최종 행동입니다. 제출하면 행동 입력 페이즈에 추가 제출할 수 없습니다.";
+  }
+  if (phase === "행동 입력") {
+    return "이번 턴 최종 행동 하나를 선택해 제출하세요.";
+  }
+  return "행동을 선택하고 제출하세요.";
+}
+
 function updateActionAvailability() {
   const phase = displayPhaseName(state.currentSessionData?.phase);
   const locked = !!state.currentSessionData?.submissionLocked;
@@ -197,19 +217,20 @@ function updateActionAvailability() {
   const canSubmit = canSubmitInPhase && !locked && !submitted;
   if (submit) {
     submit.disabled = !canSubmit;
-    submit.textContent = submitted ? "제출 완료" : locked ? "제출 마감" : canSubmit ? "⚡ 모둠 최종 결정 제출" : "현재 페이즈 제출 불가";
+    submit.textContent = submitted ? "제출 완료" : locked ? "제출 마감" : canSubmit ? "모둠 최종 결정 제출" : "현재 페이즈 제출 불가";
   }
 
   if (submitted) {
-    const message = resultProcessed ? "이번 턴 결과가 처리되었습니다." : "이번 턴 행동 제출 완료 · 교사 처리 대기";
+    const message = resultProcessed ? "이번 턴 결과가 처리되었습니다." : "이번 턴 최종 행동 제출 완료 · 교사 처리 대기";
     setStudentSubmitState(message, resultProcessed ? "done" : "wait");
     setActionBox(message, "ok");
   } else if (locked) {
     setStudentSubmitState("교사가 제출을 마감했습니다.", "locked");
     setActionBox("교사가 제출을 마감했습니다.", "err");
   } else if (canSubmitInPhase) {
-    setStudentSubmitState(`${phase}: 선택 가능한 행동을 제출하세요.`, "open");
-    setActionBox("행동을 선택하고 제출하세요.", "ok");
+    const prompt = submitPromptForPhase(phase);
+    setStudentSubmitState(`${phase}: ${prompt}`, "open");
+    setActionBox(prompt, "ok");
   } else {
     setStudentSubmitState(`${phase || "대기"}: 제출 페이즈가 아닙니다.`, "wait");
     if (phase) setActionBox(`${phase} 단계입니다. 외교/행동 페이즈에 제출할 수 있습니다.`);
@@ -422,7 +443,7 @@ export function watchStudent(code, teamId) {
         redrawMaps();
       }
 
-      $("studentPhase").textContent = "⚡ " + displayPhaseName(data.phase);
+      $("studentPhase").textContent = displayPhaseName(data.phase);
       $("studentTurn").textContent = data.turn || 1;
       renderSessionTimer(data);
       renderStudentPhaseGuide(data.phase);
@@ -503,15 +524,11 @@ export function bindStudentEvents({ initFirebase, saveResume }) {
 
       const sessionSnap = await getDoc(doc(state.db, "sessions", code));
       if (!sessionSnap.exists()) return notice("해당 세션이 없습니다.", "err");
-      if (sessionSnap.data().teamsLocked) {
-        return notice("이미 참여 모둠이 확정되어 추가 입장이 제한됩니다.", "err");
-      }
 
-      const name = $("teamName").value.trim() || "이름 없는 모둠";
+      const name = normalizeTeamName($("teamName").value) || "이름 없는 모둠";
       const existingTeamsForName = await getDocs(collection(state.db, "sessions", code, "teams"));
-      const duplicate = existingTeamsForName.docs.some((item) => (item.data().name || "").trim() === name);
-      if (duplicate) {
-        const existing = existingTeamsForName.docs.find((item) => (item.data().name || "").trim() === name);
+      const existing = findTeamByName(existingTeamsForName.docs, name);
+      if (existing) {
         const teamId = existing.id;
         show("studentUI");
         saveResume({ mode: "student", sessionId: code, teamId, teamName: name });
@@ -519,6 +536,9 @@ export function bindStudentEvents({ initFirebase, saveResume }) {
         notice(`${name} 모둠으로 다시 접속했습니다.`, "ok");
         await addLog(`${name} 모둠이 기존 기록으로 다시 접속했습니다.`);
         return;
+      }
+      if (sessionSnap.data().teamsLocked) {
+        return notice("이미 참여 모둠이 확정되어 추가 입장이 제한됩니다. 기존 모둠은 같은 이름으로 다시 접속할 수 있습니다.", "err");
       }
 
       const teamId = "team_" + crypto.randomUUID().slice(0, 8);

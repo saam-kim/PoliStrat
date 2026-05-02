@@ -270,15 +270,15 @@ function renderTeamCard(team, id) {
   const selectedClass = state.selectedTeamId === id ? " selected-team" : "";
 
   return `<div class="country-card${selectedClass}" data-team-id="${id}">
-    <div class="country-row"><span class="flag">🌐</span><span>${name}</span><span class="score">+ ${score(team)}</span></div>
-    <div class="muted" style="font-size:11px;margin-top:4px">${team.typeLabel || "국가 유형 미지정"}</div>
+    <div class="country-row"><span class="flag">국가</span><span>${name}</span><span class="score">+ ${score(team)}</span></div>
+    <div class="muted team-meta">${team.typeLabel || "국가 유형 미지정"}</div>
     <div class="mini-bars">
       <div class="bar"><span class="pink" style="width:${bar(team.military, 100)}%"></span></div>
       <div class="bar"><span class="yellow" style="width:${bar(team.gdp, 160)}%"></span></div>
       <div class="bar"><span class="green" style="width:${team.food || 70}%"></span></div>
       <div class="bar"><span class="cyan" style="width:${team.energy || 50}%"></span></div>
     </div>
-    <div class="muted" style="font-size:11px;margin-top:6px">
+    <div class="muted team-meta">
       ${team.pendingActionName ? "제출 대기: " + team.pendingActionName : team.lastAction ? "최근 행동: " + team.lastAction : "행동 대기"} ·
       ${team.lastTile !== null && team.lastTile !== undefined ? "대상 타일: " + team.lastTile : "대상 타일 없음"} ·
       핵심 +${team.strategicPoints || 0} · 점령 ${team.conqueredTiles || 0} · 방어 ${team.defensePosture || 0}
@@ -288,36 +288,36 @@ function renderTeamCard(team, id) {
 
 function renderDetail(team) {
   $("detailTeamName").textContent = fullCountryName(team, "선택 국가");
-  $("detailStats").innerHTML = `<div style="padding:10px 0;color:var(--muted);font-size:13px">유형: ${
+  $("detailStats").innerHTML = `<div class="detail-meta">유형: ${
     team.typeLabel || "미지정"
   } · ${team.typeDesc || ""}</div>
-  <div class="statline"><span>⚔ 군사력</span><div class="bar"><span class="pink" style="width:${bar(
+  <div class="statline"><span>군사력</span><div class="bar"><span class="pink" style="width:${bar(
     team.military,
     100
   )}%"></span></div><b>${team.military || 50}</b></div>
-  <div class="statline"><span>💰 GDP</span><div class="bar"><span class="yellow" style="width:${bar(
+  <div class="statline"><span>GDP</span><div class="bar"><span class="yellow" style="width:${bar(
     team.gdp,
     160
   )}%"></span></div><b>${team.gdp || 100}</b></div>
-  <div class="statline"><span>🤝 외교</span><div class="bar"><span class="cyan" style="width:${bar(
+  <div class="statline"><span>외교</span><div class="bar"><span class="cyan" style="width:${bar(
     team.diplomacy,
     80
   )}%"></span></div><b>${team.diplomacy || 30}</b></div>
-  <div class="statline"><span>🌾 식량</span><div class="bar"><span class="green" style="width:${
+  <div class="statline"><span>식량</span><div class="bar"><span class="green" style="width:${
     team.food || 70
   }%"></span></div><b>${team.food || 70}%</b></div>
-  <div class="statline"><span>⚡ 에너지</span><div class="bar"><span class="yellow" style="width:${
+  <div class="statline"><span>에너지</span><div class="bar"><span class="yellow" style="width:${
     team.energy || 50
   }%"></span></div><b>${team.energy || 50}%</b></div>
   <div class="statline"><span>★ 핵심</span><div class="bar"><span class="cyan" style="width:${bar(
     team.strategicPoints || 0,
     15
   )}%"></span></div><b>+${team.strategicPoints || 0}</b></div>
-  <div class="statline"><span>🧱 방어</span><div class="bar"><span class="purple" style="width:${bar(
+  <div class="statline"><span>방어</span><div class="bar"><span class="purple" style="width:${bar(
     team.defensePosture || 0,
     5
   )}%"></span></div><b>${team.defensePosture || 0}</b></div>
-  <div class="statline"><span>🗺 점령</span><div class="bar"><span class="green" style="width:${bar(
+  <div class="statline"><span>점령</span><div class="bar"><span class="green" style="width:${bar(
     team.conqueredTiles || 0,
     8
   )}%"></span></div><b>${team.conqueredTiles || 0}</b></div>`;
@@ -550,7 +550,7 @@ export function watchTeacher(code) {
         redrawMaps();
       }
 
-      $("teacherPhase").textContent = "⚡ " + displayPhaseName(data.phase);
+      $("teacherPhase").textContent = displayPhaseName(data.phase);
       $("teacherTurn").textContent = data.turn || 1;
       $("eventText").textContent = data.event
         ? `${data.event} · ${formatDeltaSummary(data.eventEffects || {})}`
@@ -560,6 +560,13 @@ export function watchTeacher(code) {
       renderTeamLockState();
       renderTeacherSessionState(data);
       renderTeacherChecklist(data.phase);
+      if (teacherTeamsCache.length) {
+        renderSubmissions(teacherTeamsCache);
+        renderSessionHealth(teacherTeamsCache);
+        renderTurnSummary(teacherTeamsCache);
+        renderFinalResults(teacherTeamsCache);
+        renderFinalPresentation(teacherTeamsCache);
+      }
     })
   );
 
@@ -592,17 +599,17 @@ export function watchTeacher(code) {
       $("rankList").innerHTML = teams
         .map(
           (team, index) =>
-            `<div class="rank-row"><b>${index + 1}</b><span>🌐</span><span>${displayName(
+            `<div class="rank-row"><b>${index + 1}</b><span class="flag">국가</span><span>${displayName(
               team,
               team.id
-            )}</span><span class="spacer"></span><b style="color:var(--green)">${score(team)}</b></div>`
+            )}</span><span class="spacer"></span><b class="score-value">${score(team)}</b></div>`
         )
         .join("");
 
       $("bottomCards").innerHTML = teams
         .map(
           (team) =>
-            `<div class="bottom-card"><b>🌐 ${displayName(team, team.id)}</b><div class="muted" style="font-size:11px">${
+            `<div class="bottom-card"><b>${displayName(team, team.id)}</b><div class="muted team-meta">${
               team.typeLabel || ""
             }</div><div class="bar" style="margin-top:10px"><span class="pink" style="width:${bar(
               team.military,
