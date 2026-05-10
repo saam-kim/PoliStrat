@@ -3894,6 +3894,39 @@ textarea { padding: 16px !important; }
 }
 
 
+/* Prevent teacher map overlays from colliding. */
+.teacher .map .teacher-map-title {
+  top: 16px !important;
+  left: 24px !important;
+  right: auto !important;
+  z-index: 6 !important;
+}
+
+.teacher .map .event-card {
+  top: 16px !important;
+  left: 168px !important;
+  right: 24px !important;
+  z-index: 5 !important;
+  max-width: none !important;
+}
+
+.teacher .map .checklist-panel,
+.teacher .map #teacherChecklist {
+  position: absolute !important;
+  top: 64px !important;
+  left: 24px !important;
+  width: 260px !important;
+  max-width: 260px !important;
+  z-index: 4 !important;
+  margin: 0 !important;
+}
+
+.teacher .map .hex-map,
+.teacher #teacherHex {
+  margin-top: 176px !important;
+}
+
+
 /* Larger classroom maps and non-clipping student status bar. */
 .teacher .map,
 .student .map {

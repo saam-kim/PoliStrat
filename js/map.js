@@ -1,7 +1,7 @@
-import { baseLayouts, layout, strategicTileIndexes, tileNames } from "./data.js?v=20260510-polistrat-flow9";
-import { collection, onSnapshot } from "./firebase.js?v=20260510-polistrat-flow9";
-import { state } from "./state.js?v=20260510-polistrat-flow9";
-import { $, shortName } from "./utils.js?v=20260510-polistrat-flow9";
+import { baseLayouts, layout, strategicTileIndexes, tileNames } from "./data.js?v=20260510-polistrat-flow10";
+import { collection, onSnapshot } from "./firebase.js?v=20260510-polistrat-flow10";
+import { state } from "./state.js?v=20260510-polistrat-flow10";
+import { $, shortName } from "./utils.js?v=20260510-polistrat-flow10";
 
 function buildStudentLayoutFrom(activeLayout) {
   return activeLayout;

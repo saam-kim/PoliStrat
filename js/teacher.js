@@ -10,7 +10,7 @@ import {
   phases,
   resourceLabels,
   teacherChecklist
-} from "./data.js?v=20260510-polistrat-flow9";
+} from "./data.js?v=20260510-polistrat-flow10";
 import {
   addDoc,
   addLog,
@@ -27,17 +27,17 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc
-} from "./firebase.js?v=20260510-polistrat-flow9";
-import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260510-polistrat-flow9";
+} from "./firebase.js?v=20260510-polistrat-flow10";
+import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260510-polistrat-flow10";
 import {
   redrawMaps,
   setActiveLayoutByTeamCount,
   updateTeamNameMap,
   watchTeamNames,
   watchTiles
-} from "./map.js?v=20260510-polistrat-flow9";
-import { cleanup, state } from "./state.js?v=20260510-polistrat-flow9";
-import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260510-polistrat-flow9";
+} from "./map.js?v=20260510-polistrat-flow10";
+import { cleanup, state } from "./state.js?v=20260510-polistrat-flow10";
+import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260510-polistrat-flow10";
 
 let teacherTeamsCache = [];
 
