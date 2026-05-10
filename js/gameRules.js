@@ -1,4 +1,4 @@
-import { actionDefinitions, resourceLabels, strategicTileIndexes } from "./data.js?v=20260510-polistrat-flow8";
+import { actionDefinitions, resourceLabels, strategicTileIndexes } from "./data.js?v=20260510-polistrat-flow9";
 
 export function actionByName(name) {
   return actionDefinitions.find((action) => action.name === name);

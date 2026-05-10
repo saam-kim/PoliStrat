@@ -10,7 +10,7 @@ import {
   phases,
   resourceLabels,
   teacherChecklist
-} from "./data.js?v=20260510-polistrat-flow8";
+} from "./data.js?v=20260510-polistrat-flow9";
 import {
   addDoc,
   addLog,
@@ -27,17 +27,17 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc
-} from "./firebase.js?v=20260510-polistrat-flow8";
-import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260510-polistrat-flow8";
+} from "./firebase.js?v=20260510-polistrat-flow9";
+import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260510-polistrat-flow9";
 import {
   redrawMaps,
   setActiveLayoutByTeamCount,
   updateTeamNameMap,
   watchTeamNames,
   watchTiles
-} from "./map.js?v=20260510-polistrat-flow8";
-import { cleanup, state } from "./state.js?v=20260510-polistrat-flow8";
-import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260510-polistrat-flow8";
+} from "./map.js?v=20260510-polistrat-flow9";
+import { cleanup, state } from "./state.js?v=20260510-polistrat-flow9";
+import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260510-polistrat-flow9";
 
 let teacherTeamsCache = [];
 
@@ -552,6 +552,7 @@ export function watchTeacher(code) {
 
       $("teacherPhase").textContent = displayPhaseName(data.phase);
       $("teacherTurn").textContent = data.turn || 1;
+      $("eventCard").classList.toggle("is-empty", !data.event);
       $("eventText").textContent = data.event
         ? `${data.event} · ${formatDeltaSummary(data.eventEffects || {})}`
         : "없음";
