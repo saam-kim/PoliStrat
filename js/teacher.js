@@ -10,7 +10,7 @@ import {
   phases,
   resourceLabels,
   teacherChecklist
-} from "./data.js";
+} from "./data.js?v=20260510-polistrat-flow8";
 import {
   addDoc,
   addLog,
@@ -27,17 +27,17 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc
-} from "./firebase.js";
-import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js";
+} from "./firebase.js?v=20260510-polistrat-flow8";
+import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260510-polistrat-flow8";
 import {
   redrawMaps,
   setActiveLayoutByTeamCount,
   updateTeamNameMap,
   watchTeamNames,
   watchTiles
-} from "./map.js";
-import { cleanup, state } from "./state.js";
-import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js";
+} from "./map.js?v=20260510-polistrat-flow8";
+import { cleanup, state } from "./state.js?v=20260510-polistrat-flow8";
+import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260510-polistrat-flow8";
 
 let teacherTeamsCache = [];
 
@@ -270,7 +270,7 @@ function renderTeamCard(team, id) {
   const selectedClass = state.selectedTeamId === id ? " selected-team" : "";
 
   return `<div class="country-card${selectedClass}" data-team-id="${id}">
-    <div class="country-row"><span class="flag">국가</span><span>${name}</span><span class="score">+ ${score(team)}</span></div>
+    <div class="country-row"><span class="team-card-name">${escapeHtml(name)}</span><span class="score">+ ${score(team)}</span></div>
     <div class="muted team-meta">${team.typeLabel || "국가 유형 미지정"}</div>
     <div class="mini-bars">
       <div class="bar"><span class="pink" style="width:${bar(team.military, 100)}%"></span></div>

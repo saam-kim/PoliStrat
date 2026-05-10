@@ -378,3 +378,3726 @@
       .bottom{grid-template-columns:1fr 1fr}
       .topbar-tools{gap:6px}
     }
+
+/* BOOONG light theme for PoliStrat.
+   Keeps the existing game layout selectors, but removes legacy cockpit-dark surfaces. */
+:root {
+  --bg: var(--color-surface-subtle) !important;
+  --panel: var(--color-surface-raised) !important;
+  --line: var(--color-border) !important;
+  --cyan: var(--color-primary) !important;
+  --pink: var(--color-error) !important;
+  --yellow: var(--color-warning) !important;
+  --green: var(--color-success) !important;
+  --red: var(--color-error) !important;
+  --text: var(--color-text-primary) !important;
+  --muted: var(--color-text-secondary) !important;
+  --orange: var(--color-warning) !important;
+}
+
+html,
+body {
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-primary) !important;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  color-scheme: light;
+  font-family: var(--font-sans);
+}
+
+.teacher,
+.student,
+.setup {
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.topbar,
+.teacher .topbar,
+.student .topbar,
+.country-list,
+.rightbar,
+.student-side,
+.side-content,
+.student-tabs,
+.chatbar,
+.bottom,
+.tool-group,
+.session-state,
+.map-tools,
+.tabs {
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.start-card,
+.setup-card,
+.resume-box,
+.notice,
+.panel,
+.country-card,
+.bottom-card,
+.resource,
+.country-intel-panel,
+.diplomacy-form,
+.student-guide,
+.action,
+.result-box,
+.summary-item,
+.final-card,
+.diplomacy-card,
+.intel-stat,
+.submission-row,
+.confirm-box,
+.ops-box,
+.modal,
+.modal-stat,
+.modal-tip,
+.confirm-content,
+.presentation-card,
+.presentation-hero,
+.phase-guide,
+.summary-panel,
+.checklist-panel,
+.tile-info,
+.event-card,
+.legend,
+.student-phase-guide,
+.student-submit-state,
+.action-flow span,
+.action-head small,
+.check,
+.title-badge,
+.chat-badge,
+.locked-badge,
+.state-chip,
+.role-card,
+.diplomacy-preview {
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+  text-shadow: none !important;
+}
+
+.notice,
+.resume-box,
+.phase,
+.teacher .phase,
+.student .phase,
+.role-pill,
+.student .role-pill,
+.state-chip.done,
+.student-submit-state.done,
+.student-submit-state.open,
+.submission-row.pending {
+  background: var(--color-primary-subtle) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.notice.ok,
+.state-chip.open,
+.submission-row.done,
+.action.selected,
+.result-panel.done {
+  background: var(--color-success-subtle) !important;
+  border-color: var(--color-success-border) !important;
+  color: var(--color-success-text) !important;
+}
+
+.notice.err,
+.state-chip.locked,
+.student-submit-state.locked,
+.result-panel.final {
+  background: var(--color-error-subtle) !important;
+  border-color: var(--color-error-border) !important;
+  color: var(--color-error-text) !important;
+}
+
+.state-chip.wait,
+.student-submit-state.wait,
+.submission-row.wait,
+.event-card,
+.chat-badge,
+button.orange,
+.teacher button.orange,
+.student button.orange,
+.title-badge {
+  background: var(--color-warning-subtle) !important;
+  border-color: var(--color-warning-border) !important;
+  color: var(--color-warning-text) !important;
+}
+
+button,
+.teacher button,
+.student button,
+input,
+textarea,
+select,
+.teacher input,
+.teacher select,
+.teacher textarea,
+.student input,
+.student select,
+.student textarea {
+  min-height: var(--space-11);
+  border-radius: var(--radius);
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+  text-shadow: none !important;
+}
+
+button:hover,
+.teacher button:hover,
+.student button:hover {
+  background: var(--color-primary-subtle) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+button:focus-visible,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-border-focus) !important;
+  box-shadow: var(--shadow-focus-ring) !important;
+}
+
+button.primary,
+.submit,
+.teacher button.primary,
+.teacher .submit,
+.student button.primary,
+.student .submit {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+}
+
+button.danger,
+.teacher button.danger,
+.student button.danger {
+  background: var(--color-error-subtle) !important;
+  border-color: var(--color-error-border) !important;
+  color: var(--color-error-text) !important;
+}
+
+.logo,
+.home-logo,
+.teacher .logo,
+.student .logo,
+.session-code,
+.country-name,
+.panel-title,
+.phase-guide b,
+.summary-panel b,
+.tile-info b,
+.diplomacy-form b,
+.country-intel-panel b,
+.student-guide b,
+.action-list-head b,
+.modal h2,
+.role-card b,
+.ops-box summary,
+.ops-box b,
+.diplomacy-section-title,
+.flag {
+  color: var(--color-primary-text) !important;
+  text-shadow: none !important;
+}
+
+.logo span,
+.home-logo span,
+.teacher .logo span,
+.student .logo span,
+.modal .type-name,
+.presentation-rank,
+.final-card .place {
+  color: var(--color-warning-text) !important;
+}
+
+.muted,
+.turn,
+.teacher .turn,
+.student .turn,
+.confirm-note,
+.team-meta,
+.teacher-map-title,
+.map-tools,
+.student-phase-guide span,
+.resource h3,
+.intel-stat span,
+.role-card small,
+.ops-box label,
+.student-tab,
+.tab,
+.log-item,
+.rank-row {
+  color: var(--color-text-secondary) !important;
+}
+
+.timer,
+.change.down,
+.action-cost {
+  color: var(--color-error-text) !important;
+  text-shadow: none !important;
+}
+
+.score,
+.score-value,
+.change.up,
+.action-gain,
+.summary-delta {
+  color: var(--color-success-text) !important;
+}
+
+.map {
+  background: var(--color-surface) !important;
+  background-size: auto !important;
+}
+
+.hex {
+  color: var(--color-text-primary) !important;
+  text-shadow: none !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.7), var(--shadow-sm) !important;
+}
+
+.a { background: #d6e4ff !important; }
+.b { background: #ffd6d6 !important; }
+.c { background: #c9e8d4 !important; }
+.d { background: #ffe0b2 !important; }
+.e { background: #adc8ff !important; }
+.f { background: #a0d4b5 !important; }
+.neutral { background: #e3e7ee !important; }
+.dispute { background: #ffcc80 !important; }
+.empty { background: #f7f9fc !important; opacity: .9 !important; }
+
+.hex.conquered,
+#studentHex .hex.selected-tile,
+#studentHex .hex:hover {
+  outline-color: var(--color-primary) !important;
+  filter: none !important;
+}
+
+#studentHex .hex.selected-tile::after {
+  background: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+}
+
+.bar { background: var(--color-border) !important; }
+.pink { background: var(--color-error) !important; }
+.yellow { background: var(--color-warning) !important; }
+.cyan { background: var(--color-primary) !important; }
+.green { background: var(--color-success) !important; }
+.purple { background: var(--blue-300) !important; }
+
+.student-tab.active,
+.tab.active {
+  background: var(--color-primary-subtle) !important;
+  border-bottom-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.country-card:hover,
+.bottom-card:hover,
+.action:not(.unavailable):hover,
+.country-card.selected-team {
+  background: var(--color-primary-subtle) !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+.modal-backdrop { background: rgba(13, 17, 23, 0.18) !important; }
+.teacher ::-webkit-scrollbar-thumb,
+.student ::-webkit-scrollbar-thumb { background: var(--color-border-strong) !important; }
+.teacher ::-webkit-scrollbar-track,
+.student ::-webkit-scrollbar-track { background: var(--color-surface-subtle) !important; }
+
+.u-mt-sm { margin-top: var(--space-2) !important; }
+.u-mt-md { margin-top: var(--space-3) !important; }
+.inline-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.text-accent { color: var(--color-primary-text) !important; }
+
+
+
+/* Empty map tiles need enough contrast on the BOOONG light grid. */
+.empty,
+.hex.empty {
+  background: var(--neutral-200) !important;
+  opacity: 1 !important;
+  box-shadow:
+    inset 0 0 0 1px var(--color-border-strong),
+    var(--shadow-sm) !important;
+}
+
+.hex.empty::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  clip-path: inherit;
+  background: color-mix(in srgb, var(--neutral-300) 42%, transparent);
+  pointer-events: none;
+}
+
+
+/* Dashboard layout refresh inspired by the Claude mockup, kept in BOOONG light tone. */
+.teacher {
+  grid-template-rows: 72px minmax(0, 1fr) 64px !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  background: var(--color-surface-subtle) !important;
+}
+
+.teacher .topbar {
+  position: relative;
+  z-index: 30;
+  height: 72px !important;
+  gap: var(--space-4) !important;
+  padding: 0 var(--space-5) !important;
+  overflow: hidden !important;
+}
+
+.teacher .logo {
+  flex: 0 0 auto;
+  padding-right: var(--space-4);
+  border-right: 1px solid var(--color-border);
+  letter-spacing: .12em;
+}
+
+.teacher .phase {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  min-width: 210px;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full) !important;
+  font-size: var(--text-md);
+  font-weight: var(--weight-extrabold);
+}
+
+.teacher .phase::before {
+  content: "";
+  position: absolute;
+  left: -120px;
+  top: 50%;
+  width: 92px;
+  height: 12px;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(circle at 6px 6px, var(--color-success) 0 5px, transparent 6px),
+    radial-gradient(circle at 28px 6px, var(--color-primary) 0 5px, transparent 6px),
+    radial-gradient(circle at 50px 6px, var(--blue-300) 0 5px, transparent 6px),
+    radial-gradient(circle at 72px 6px, var(--neutral-300) 0 5px, transparent 6px),
+    radial-gradient(circle at 90px 6px, var(--neutral-300) 0 5px, transparent 6px);
+}
+
+.teacher .timer {
+  margin-left: var(--space-3);
+  font-size: var(--text-4xl);
+  line-height: 1;
+}
+
+.teacher .topbar-tools {
+  display: none !important;
+}
+
+.teacher-main {
+  grid-template-columns: 308px minmax(560px, 1fr) 394px !important;
+  min-height: 0 !important;
+  margin-top: 52px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface) !important;
+}
+
+.teacher .event-card {
+  position: fixed !important;
+  top: 72px !important;
+  right: 0 !important;
+  left: 0 !important;
+  z-index: 25 !important;
+  width: auto !important;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5) !important;
+  border-width: 0 0 1px !important;
+  border-radius: 0 !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.teacher .event-card b {
+  flex: 0 0 auto;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-warning-border);
+  border-radius: var(--radius-full);
+  background: var(--color-warning-subtle);
+  color: var(--color-warning-text) !important;
+  font-size: var(--text-xs);
+}
+
+.country-list {
+  padding: 0 !important;
+  border-right: 1px solid var(--color-border) !important;
+}
+
+.country-list > .panel-title {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.confirm-box {
+  margin: 0 !important;
+  padding: var(--space-4) !important;
+  border-width: 0 0 1px !important;
+  border-radius: 0 !important;
+}
+
+.confirm-box button {
+  border-radius: var(--radius-full) !important;
+}
+
+.ops-box {
+  margin: 0 !important;
+  border-width: 1px 0 0 !important;
+  border-radius: 0 !important;
+}
+
+#countryCards {
+  max-height: calc(100vh - 324px) !important;
+  padding: var(--space-3) !important;
+}
+
+.country-card {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3) !important;
+  padding: var(--space-3) !important;
+  border-radius: var(--radius) !important;
+}
+
+.country-row {
+  gap: var(--space-2) !important;
+  font-size: var(--text-base);
+}
+
+.score {
+  border: 1px solid var(--color-success-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-success-subtle);
+}
+
+.map {
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.teacher-map-title {
+  top: var(--space-4) !important;
+  letter-spacing: .32em !important;
+  color: var(--color-primary-text) !important;
+}
+
+.teacher .legend {
+  position: absolute !important;
+  top: var(--space-10) !important;
+  left: 50% !important;
+  z-index: 5;
+  transform: translateX(-50%);
+  margin: 0 !important;
+  background: var(--color-surface-raised) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.teacher .hex-map {
+  grid-template-columns: repeat(12, 58px) !important;
+  grid-auto-rows: 56px !important;
+  gap: 0 !important;
+  margin-top: 92px !important;
+}
+
+.teacher .hex {
+  width: 60px !important;
+  height: 54px !important;
+}
+
+.checklist-panel {
+  left: var(--space-4) !important;
+  top: var(--space-4) !important;
+  width: 250px !important;
+}
+
+.summary-panel {
+  left: var(--space-4) !important;
+  top: 188px !important;
+  width: 250px !important;
+}
+
+.phase-guide {
+  left: 50% !important;
+  right: auto !important;
+  bottom: var(--space-8) !important;
+  top: auto !important;
+  width: min(780px, 72%) !important;
+  transform: translateX(-50%) !important;
+  border-width: 1px !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.rightbar {
+  grid-template-rows: 1.05fr 1fr 1fr 1.15fr .95fr !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  border-left: 1px solid var(--color-border) !important;
+}
+
+.rightbar .panel {
+  border-width: 0 0 1px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.rightbar .panel-title {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4) !important;
+}
+
+#detailStats,
+#submissionList,
+#diplomacyList,
+#logList,
+#rankList {
+  padding: var(--space-3) !important;
+}
+
+.bottom {
+  z-index: 35;
+  grid-template-columns: 1fr auto auto auto !important;
+  align-items: center;
+  gap: var(--space-3) !important;
+  height: 64px !important;
+  padding: var(--space-2) var(--space-4) !important;
+}
+
+.teacher .bottom .bottom-card:nth-child(n + 3) {
+  display: none !important;
+}
+
+.teacher .bottom .bottom-card:nth-child(-n + 2) {
+  display: block !important;
+  min-width: 220px;
+  height: 44px;
+  overflow: hidden;
+  padding: var(--space-2) var(--space-3) !important;
+}
+
+@media (max-width: 1180px) {
+  .teacher-main {
+    grid-template-columns: 280px minmax(520px, 1fr) 340px !important;
+  }
+
+  .teacher .hex-map {
+    transform: scale(.86);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 760px) {
+  .teacher {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+  }
+
+  .teacher .event-card {
+    position: static !important;
+  }
+
+  .teacher-main {
+    grid-template-columns: 1fr !important;
+    margin-top: 0;
+  }
+
+  .rightbar {
+    border-left: 0 !important;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+}
+
+
+/* Right dashboard repair: remove dark headers, fix phase buttons, remove broken pseudo labels. */
+.rightbar {
+  grid-template-rows: 156px 148px 124px minmax(140px, 1fr) 118px !important;
+  overflow: hidden !important;
+  background: var(--color-surface-sidebar) !important;
+}
+
+.rightbar .panel,
+.teacher .rightbar .panel {
+  min-height: 0 !important;
+  overflow: hidden !important;
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border) !important;
+}
+
+.panel-title,
+.rightbar .panel-title,
+.teacher .rightbar .panel-title,
+.teacher .submission-panel .panel-title {
+  min-height: 44px !important;
+  background: var(--color-surface-raised) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-primary-text) !important;
+  box-shadow: none !important;
+}
+
+#detailStats,
+#submissionList,
+#diplomacyList,
+#logList,
+#rankList {
+  max-height: none !important;
+  overflow: auto !important;
+  background: var(--color-surface-raised) !important;
+  color: var(--color-text-primary) !important;
+}
+
+#phaseSteps,
+.phase-box,
+.submission-panel #phaseSteps {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: var(--space-2) !important;
+  margin: 0 !important;
+  padding: var(--space-2) !important;
+  background: var(--color-surface-raised) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.phase-step,
+.phase-step.active {
+  min-height: 36px !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: var(--space-2) !important;
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-bold) !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+}
+
+.phase-step.active {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+}
+
+#submissionList {
+  padding-top: var(--space-2) !important;
+}
+
+.diplomacy-list,
+#diplomacyList,
+#logList,
+#rankList {
+  font-size: var(--text-sm) !important;
+}
+
+.bottom::before,
+.bottom::after {
+  content: none !important;
+  display: none !important;
+}
+
+.bottom {
+  grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  justify-content: start !important;
+}
+
+.teacher .bottom .bottom-card:nth-child(-n + 2) {
+  display: block !important;
+  min-width: 0 !important;
+}
+
+
+/* Restore teacher operation buttons as a bottom command bar. */
+.teacher {
+  grid-template-rows: 72px minmax(0, 1fr) 58px !important;
+  padding-bottom: 58px;
+}
+
+.teacher .topbar-tools {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100 !important;
+  display: grid !important;
+  grid-template-columns: auto auto auto 1fr !important;
+  align-items: center !important;
+  gap: var(--space-3) !important;
+  min-width: 0 !important;
+  height: 58px !important;
+  padding: var(--space-2) var(--space-4) !important;
+  border-top: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  box-shadow: 0 -4px 16px rgba(13, 17, 23, 0.08) !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+.teacher .topbar-tools .tool-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-2) !important;
+  min-width: max-content !important;
+  height: 42px !important;
+  padding: var(--space-1) var(--space-2) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius) !important;
+  background: var(--color-surface-subtle) !important;
+  box-shadow: none !important;
+}
+
+.teacher .topbar-tools button {
+  min-height: 34px !important;
+  padding: var(--space-2) var(--space-3) !important;
+  white-space: nowrap !important;
+  font-size: var(--text-sm) !important;
+  line-height: 1 !important;
+}
+
+.teacher .bottom {
+  display: none !important;
+}
+
+.teacher-main {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 980px) {
+  .teacher .topbar-tools {
+    grid-template-columns: auto auto auto auto !important;
+  }
+
+  .teacher .topbar-tools::before {
+    display: none;
+  }
+}
+
+
+/* Keep teacher helper panels clear of the map tiles. */
+.teacher .hex-map {
+  transform: translateX(96px) !important;
+}
+
+@media (max-width: 1180px) {
+  .teacher .hex-map {
+    transform: translateX(64px) scale(.86) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .teacher .hex-map {
+    transform: none !important;
+  }
+}
+
+
+/* Clean command bar: real labels, no pseudo text, no empty stretch box. */
+.teacher .topbar-tools {
+  display: flex !important;
+  grid-template-columns: none !important;
+  justify-content: flex-start !important;
+  gap: var(--space-3) !important;
+  width: 100% !important;
+}
+
+.teacher .topbar-tools::before,
+.teacher .topbar-tools .tool-group::before,
+.teacher .topbar-tools .tool-group:nth-child(1)::before,
+.teacher .topbar-tools .tool-group:nth-child(2)::before,
+.teacher .topbar-tools .tool-group:nth-child(3)::before,
+.teacher .topbar-tools .tool-group:nth-child(4)::before,
+.teacher .topbar-tools .tool-group:nth-child(5)::before {
+  content: none !important;
+  display: none !important;
+}
+
+.teacher .topbar-tools .tool-group {
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+
+.teacher .topbar-tools .tool-group-session {
+  margin-left: auto !important;
+}
+
+.tool-label {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  white-space: nowrap;
+}
+
+.teacher .topbar-tools button {
+  border-radius: var(--radius-sm) !important;
+}
+
+@media (max-width: 1180px) {
+  .teacher .topbar-tools .tool-group-session {
+    margin-left: 0 !important;
+  }
+}
+
+
+/* Teacher dashboard final polish: class-ready, readable, light BOOONG tone. */
+.teacher {
+  grid-template-rows: 64px minmax(0, 1fr) !important;
+  padding-bottom: 56px !important;
+  background: var(--color-surface-subtle) !important;
+}
+
+.teacher .topbar {
+  height: 64px !important;
+  padding: 0 20px !important;
+  gap: 14px !important;
+  background: var(--color-surface-raised) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.teacher .logo {
+  font-size: 20px !important;
+  letter-spacing: .16em !important;
+}
+
+.teacher .phase {
+  min-width: 180px !important;
+  padding: 8px 18px !important;
+  font-size: 14px !important;
+}
+
+.teacher .phase::before {
+  left: -96px !important;
+  width: 78px !important;
+  opacity: .9 !important;
+}
+
+.teacher .turn,
+.teacher .session-state {
+  white-space: nowrap !important;
+}
+
+.teacher .timer {
+  font-size: 34px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+}
+
+.teacher .event-card {
+  top: 64px !important;
+  min-height: 44px !important;
+  padding: 8px 20px !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+.teacher .event-card b {
+  padding: 3px 10px !important;
+  font-size: 12px !important;
+}
+
+.teacher-main {
+  grid-template-columns: 286px minmax(640px, 1fr) 360px !important;
+  margin-top: 44px !important;
+  min-height: 0 !important;
+}
+
+.country-list,
+.rightbar {
+  background: var(--color-surface-sidebar) !important;
+}
+
+.country-list > .panel-title,
+.rightbar .panel-title,
+.panel-title {
+  min-height: 40px !important;
+  padding: 0 14px !important;
+  color: var(--color-primary-text) !important;
+  font-size: 13px !important;
+  letter-spacing: .02em !important;
+}
+
+.confirm-box {
+  padding: 12px 14px !important;
+}
+
+.confirm-note {
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+.ops-box {
+  padding: 10px 14px !important;
+}
+
+.ops-box summary {
+  cursor: pointer;
+  font-size: 13px !important;
+}
+
+#countryCards {
+  max-height: calc(100vh - 286px) !important;
+  padding: 10px 12px 14px !important;
+}
+
+.country-card {
+  margin-bottom: 8px !important;
+  padding: 10px !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.country-row {
+  font-size: 15px !important;
+}
+
+.team-meta {
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+}
+
+.teacher-map-title {
+  top: 15px !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 12px !important;
+  letter-spacing: .22em !important;
+}
+
+.teacher .legend {
+  top: 42px !important;
+  padding: 7px 12px !important;
+  font-size: 12px !important;
+}
+
+.checklist-panel,
+.summary-panel,
+.phase-guide {
+  background: rgba(255, 255, 255, .94) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .08) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.checklist-panel {
+  top: 22px !important;
+  left: 18px !important;
+  width: 236px !important;
+  padding: 12px 14px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+.checklist-panel ul {
+  margin: 8px 0 0 !important;
+  padding-left: 17px !important;
+}
+
+.checklist-panel li + li {
+  margin-top: 5px !important;
+}
+
+.summary-panel {
+  top: 170px !important;
+  left: 18px !important;
+  width: 236px !important;
+  max-height: 172px !important;
+  padding: 12px 14px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  overflow: auto !important;
+}
+
+.phase-guide {
+  bottom: 22px !important;
+  width: min(680px, 64%) !important;
+  padding: 14px 18px !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+.guide-keywords {
+  margin-top: 6px !important;
+  color: var(--color-warning-text) !important;
+  font-weight: 800 !important;
+}
+
+.teacher .hex-map {
+  margin-top: 82px !important;
+  transform: translateX(116px) !important;
+}
+
+.rightbar {
+  grid-template-rows: 190px 172px 132px minmax(156px, 1fr) 132px !important;
+  gap: 8px !important;
+  padding: 8px !important;
+  overflow: hidden !important;
+}
+
+.rightbar .panel,
+.teacher .rightbar .panel {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-surface-raised) !important;
+  overflow: hidden !important;
+}
+
+#detailStats,
+#submissionList,
+#diplomacyList,
+#logList,
+#rankList {
+  padding: 10px 12px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+#detailStats:empty::before {
+  content: "왼쪽 참가 모둠을 선택하면 자원과 행동 현황이 표시됩니다.";
+  color: var(--color-text-secondary);
+}
+
+.statline {
+  gap: 8px !important;
+  margin: 7px 0 !important;
+  font-size: 12px !important;
+}
+
+.statline span {
+  min-width: 52px !important;
+}
+
+#phaseSteps,
+.phase-box,
+.submission-panel #phaseSteps {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  padding: 8px !important;
+}
+
+.phase-step,
+.phase-step.active {
+  min-height: 30px !important;
+  padding: 6px 4px !important;
+  font-size: 11px !important;
+}
+
+.submission-row,
+.log-item,
+.rank-row {
+  padding: 7px 0 !important;
+  font-size: 12px !important;
+}
+
+.teacher .topbar-tools {
+  height: 56px !important;
+  padding: 8px 14px !important;
+  gap: 10px !important;
+  background: rgba(255, 255, 255, .98) !important;
+  border-top: 1px solid var(--color-border) !important;
+  box-shadow: 0 -8px 24px rgba(15, 23, 42, .08) !important;
+}
+
+.teacher .topbar-tools .tool-group {
+  height: 40px !important;
+  gap: 6px !important;
+  padding: 4px 8px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-surface-subtle) !important;
+}
+
+.tool-label {
+  height: 24px !important;
+  font-size: 11px !important;
+}
+
+.teacher .topbar-tools button {
+  min-height: 30px !important;
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.teacher .topbar-tools .tool-group-session {
+  margin-left: auto !important;
+}
+
+@media (max-width: 1180px) {
+  .teacher-main {
+    grid-template-columns: 260px minmax(520px, 1fr) 330px !important;
+  }
+
+  .teacher .hex-map {
+    transform: translateX(76px) scale(.86) !important;
+    transform-origin: top center !important;
+  }
+
+  .phase-guide {
+    width: min(620px, 58%) !important;
+  }
+}
+
+
+/* Entry page polish: clear classroom entry flow in BOOONG light tone. */
+body:has(#setup:not(.hidden)) {
+  min-height: 100vh;
+  background: var(--color-surface-subtle) !important;
+  background-size: auto !important;
+}
+
+.setup {
+  max-width: 1120px !important;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  margin: 0 auto !important;
+  padding: 42px 24px !important;
+  color: var(--color-text-primary) !important;
+}
+
+.home-hero {
+  max-width: 760px;
+  padding: 0 !important;
+}
+
+.home-kicker {
+  color: var(--color-primary-text);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.home-hero h1,
+.home-logo {
+  margin: 0 0 10px !important;
+  color: var(--color-primary-text) !important;
+  font-size: clamp(38px, 6vw, 66px) !important;
+  line-height: .95 !important;
+  letter-spacing: .12em !important;
+  text-shadow: none !important;
+}
+
+.home-logo span {
+  color: var(--color-warning-text) !important;
+}
+
+.home-hero p {
+  max-width: 700px;
+  color: var(--color-text-secondary) !important;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.notice {
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  border: 1px solid var(--color-primary-border) !important;
+  border-left-width: 5px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-primary-subtle) !important;
+  color: var(--color-primary-text) !important;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.notice.err {
+  border-color: var(--color-error-border) !important;
+  background: var(--color-error-subtle) !important;
+  color: var(--color-error-text) !important;
+}
+
+.notice.ok {
+  border-color: var(--color-success-border) !important;
+  background: var(--color-success-subtle) !important;
+  color: var(--color-success-text) !important;
+}
+
+.entry-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.entry-steps span {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, .78);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.start-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin-top: 0 !important;
+}
+
+.start-card,
+.setup-card,
+.resume-box {
+  background: rgba(255, 255, 255, .96) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .08) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.start-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 430px;
+  padding: 24px !important;
+}
+
+.entry-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.entry-role {
+  flex: 0 0 auto;
+  padding: 4px 9px;
+  border: 1px solid var(--color-primary-border);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-subtle);
+  color: var(--color-primary-text);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.student-entry-card .entry-role {
+  border-color: var(--color-success-border);
+  background: var(--color-success-subtle);
+  color: var(--color-success-text);
+}
+
+.start-card h2,
+.setup-card h2 {
+  margin: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-size: 22px;
+  letter-spacing: 0 !important;
+}
+
+.start-card p,
+.setup-card p,
+.entry-help,
+.resume-box .muted {
+  color: var(--color-text-secondary) !important;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.start-card label {
+  margin-top: 6px !important;
+  color: var(--color-text-primary) !important;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.setup input,
+.setup textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  padding: 11px 12px !important;
+  font-size: 15px;
+  box-shadow: none !important;
+}
+
+.setup input::placeholder,
+.setup textarea::placeholder {
+  color: var(--color-text-tertiary) !important;
+}
+
+.setup input:focus,
+.setup textarea:focus {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+  border-color: var(--color-primary) !important;
+}
+
+.start-card button,
+.setup-card button,
+.resume-box button,
+.settings-toggle {
+  min-height: 40px;
+  border-radius: var(--radius-sm) !important;
+  font-size: 14px;
+}
+
+.start-card button.primary,
+#startStudent.primary,
+#resumeGameBtn.primary {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+}
+
+.student-entry-card button.primary {
+  background: var(--color-success) !important;
+  border-color: var(--color-success) !important;
+  color: var(--color-on-success, #fff) !important;
+}
+
+.entry-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.entry-divider::before,
+.entry-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--color-border);
+}
+
+.entry-inline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.entry-help {
+  min-height: 38px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-subtle);
+}
+
+.resume-box {
+  margin: 0 !important;
+  padding: 14px 16px !important;
+}
+
+.resume-box b {
+  color: var(--color-primary-text) !important;
+}
+
+.setup-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings-toggle {
+  margin-top: 0 !important;
+  background: var(--color-surface-raised) !important;
+  border: 1px solid var(--color-border-strong) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.setup-card {
+  margin: 0 !important;
+  padding: 20px !important;
+}
+
+#configInput {
+  min-height: 132px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .setup {
+    align-content: start;
+    padding: 28px 16px !important;
+  }
+
+  .start-grid,
+  .entry-steps {
+    grid-template-columns: 1fr !important;
+  }
+
+  .start-card {
+    min-height: 0;
+  }
+
+  .home-hero h1,
+  .home-logo {
+    font-size: 40px !important;
+  }
+}
+
+
+/* Student game page polish: readable team tablet layout in BOOONG light tone. */
+.student {
+  height: 100vh !important;
+  grid-template-rows: 66px minmax(0, 1fr) !important;
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-primary) !important;
+  overflow: hidden !important;
+}
+
+.student .topbar {
+  height: 66px !important;
+  padding: 0 18px !important;
+  gap: 12px !important;
+  background: var(--color-surface-raised) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, .06) !important;
+}
+
+.student .country-name {
+  min-width: 150px;
+  color: var(--color-primary-text) !important;
+  font-size: 19px !important;
+  font-weight: 900 !important;
+  white-space: nowrap;
+}
+
+.student .role-pill,
+.student .phase,
+.student .turn {
+  white-space: nowrap !important;
+}
+
+.student .role-pill {
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: var(--radius-full) !important;
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-secondary) !important;
+  padding: 6px 11px !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+
+.student .phase {
+  border-radius: var(--radius-full) !important;
+  padding: 8px 14px !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+
+.student .timer {
+  color: var(--color-error-text) !important;
+  font-size: 30px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+}
+
+.student-phase-guide {
+  flex: 1 1 auto !important;
+  min-width: 280px !important;
+  height: 44px !important;
+  border: 1px solid var(--color-primary-border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-primary-subtle) !important;
+  color: var(--color-text-primary) !important;
+  padding: 8px 12px !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+}
+
+.student-phase-guide b {
+  color: var(--color-primary-text) !important;
+  font-size: 13px !important;
+}
+
+.student-phase-guide span {
+  color: var(--color-text-primary) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.student-main {
+  grid-template-columns: minmax(520px, 1fr) 520px !important;
+  background: var(--color-surface) !important;
+}
+
+.student .map {
+  background: var(--color-surface) !important;
+  background-size: auto !important;
+}
+
+.map-tools {
+  top: 14px !important;
+  left: 18px !important;
+  right: 18px !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em;
+}
+
+.map-tools span {
+  color: var(--color-warning-text);
+  letter-spacing: 0;
+}
+
+.student .hex-map {
+  margin-top: 76px !important;
+  transform: scale(.92) !important;
+  transform-origin: top center !important;
+}
+
+.student .legend {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 20px !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  padding: 7px 12px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: rgba(255, 255, 255, .94) !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .08) !important;
+  font-size: 12px !important;
+}
+
+.tile-info {
+  left: 18px !important;
+  bottom: 20px !important;
+  width: min(300px, 34vw) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: rgba(255, 255, 255, .95) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .08) !important;
+  padding: 12px 14px !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.tile-info b {
+  color: var(--color-primary-text) !important;
+}
+
+.student-side {
+  grid-template-rows: 46px minmax(0, 1fr) 52px !important;
+  border-left: 1px solid var(--color-border) !important;
+  background: var(--color-surface-sidebar) !important;
+}
+
+.student-tabs {
+  background: var(--color-surface-raised) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.student-tab {
+  min-height: 46px !important;
+  border: 0 !important;
+  border-right: 1px solid var(--color-border) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+
+.student-tab.active {
+  background: var(--color-primary-subtle) !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 3px solid var(--color-primary) !important;
+}
+
+.side-content {
+  padding: 14px !important;
+  overflow: auto !important;
+}
+
+.student-guide,
+.student-submit-state,
+.result-box,
+.country-intel-panel,
+.diplomacy-form,
+.diplomacy-preview,
+.action,
+.resource {
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important;
+}
+
+.student-guide {
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  color: var(--color-text-secondary) !important;
+  padding: 11px 12px !important;
+  margin-bottom: 12px !important;
+  font-size: 12px !important;
+}
+
+.student-guide b {
+  color: var(--color-primary-text) !important;
+}
+
+.student-guide ol {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0 0 !important;
+}
+
+.student-guide li.active {
+  color: var(--color-warning-text) !important;
+}
+
+.student-guide li.done {
+  color: var(--color-success-text) !important;
+}
+
+.student-guide button {
+  min-height: 26px !important;
+  padding: 2px 8px !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.student .panel-title {
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--color-primary-text) !important;
+  font-size: 13px !important;
+  letter-spacing: .02em !important;
+}
+
+.resource-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+.resource {
+  min-height: 116px;
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  padding: 13px !important;
+}
+
+.resource h3 {
+  color: var(--color-text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+}
+
+.resource .num {
+  margin: 0 !important;
+  color: var(--color-primary-text) !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+}
+
+.change.up,
+.change.down {
+  font-size: 11px !important;
+  font-weight: 900 !important;
+}
+
+.country-intel-panel {
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  color: var(--color-text-primary) !important;
+  margin-top: 12px !important;
+  padding: 12px !important;
+  font-size: 12px !important;
+}
+
+.country-intel-panel b,
+.diplomacy-form b,
+.action-list-head b {
+  color: var(--color-primary-text) !important;
+}
+
+.student-submit-state {
+  border: 1px solid var(--color-warning-border) !important;
+  background: var(--color-warning-subtle) !important;
+  color: var(--color-warning-text) !important;
+  padding: 11px 12px !important;
+  font-size: 13px !important;
+}
+
+.student-submit-state.open {
+  border-color: var(--color-success-border) !important;
+  background: var(--color-success-subtle) !important;
+  color: var(--color-success-text) !important;
+}
+
+.student-submit-state.locked {
+  border-color: var(--color-error-border) !important;
+  background: var(--color-error-subtle) !important;
+  color: var(--color-error-text) !important;
+}
+
+.student-submit-state.done {
+  border-color: var(--color-primary-border) !important;
+  background: var(--color-primary-subtle) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.action-list {
+  margin-top: 12px !important;
+}
+
+.action-list-head {
+  margin-bottom: 8px !important;
+}
+
+.action-list-head select,
+.diplomacy-form select,
+.diplomacy-form input {
+  border: 1px solid var(--color-border-strong) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.action {
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  padding: 12px !important;
+  margin-bottom: 8px !important;
+}
+
+.action:not(.unavailable):hover,
+.action.selected {
+  border-color: var(--color-primary) !important;
+  background: var(--color-primary-subtle) !important;
+}
+
+.action.unavailable {
+  background: var(--color-surface-subtle) !important;
+  opacity: .62 !important;
+}
+
+.action-head span {
+  color: var(--color-text-primary) !important;
+}
+
+.action-head small,
+.action-flow span {
+  border-color: var(--color-border) !important;
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.action-reason {
+  color: var(--color-warning-text) !important;
+}
+
+.action-reason.ok {
+  color: var(--color-success-text) !important;
+}
+
+#submitAction.submit {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 10px;
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.diplomacy-form,
+.diplomacy-preview,
+#studentDiplomacyList,
+.result-panel {
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.diplomacy-form {
+  padding: 13px !important;
+}
+
+.diplomacy-form label {
+  color: var(--color-text-secondary) !important;
+}
+
+.chatbar {
+  border-top: 1px solid var(--color-border) !important;
+  background: var(--color-surface-raised) !important;
+  color: var(--color-text-secondary) !important;
+  padding: 10px 14px !important;
+  font-size: 12px !important;
+}
+
+.chat-badge {
+  background: var(--color-primary-subtle) !important;
+  border-color: var(--color-primary-border) !important;
+  color: var(--color-primary-text) !important;
+}
+
+@media (max-width: 1180px) {
+  .student-main {
+    grid-template-columns: minmax(420px, 1fr) 460px !important;
+  }
+
+  .student .hex-map {
+    transform: scale(.78) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .student {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
+  .student .topbar {
+    height: auto !important;
+    min-height: 66px !important;
+    flex-wrap: wrap !important;
+    padding: 10px 12px !important;
+  }
+
+  .student-phase-guide {
+    order: 10;
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+  }
+
+  .student-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .student-side {
+    border-left: 0 !important;
+  }
+
+  .tile-info {
+    position: static !important;
+    width: auto !important;
+    margin: 12px !important;
+  }
+}
+
+
+/* Teacher helper card collision fix. */
+.checklist-panel {
+  width: 220px !important;
+  max-height: 150px !important;
+  overflow: auto !important;
+  padding: 10px 12px !important;
+  font-size: 11px !important;
+  line-height: 1.38 !important;
+}
+
+.checklist-panel ul {
+  margin-top: 6px !important;
+}
+
+.checklist-panel li + li {
+  margin-top: 4px !important;
+}
+
+.summary-panel {
+  top: 198px !important;
+  width: 220px !important;
+  max-height: 150px !important;
+  padding: 10px 12px !important;
+  font-size: 11px !important;
+  line-height: 1.38 !important;
+}
+
+.teacher .hex-map {
+  transform: translateX(128px) !important;
+}
+
+@media (max-width: 1180px) {
+  .teacher .hex-map {
+    transform: translateX(86px) scale(.86) !important;
+  }
+}
+
+
+/* Country type modal stat values must stay visible on the BOOONG light modal. */
+.modal-stat b,
+#modalGdp,
+#modalMil,
+#modalDip,
+#modalEnergy {
+  display: block !important;
+  min-height: 28px !important;
+  margin-top: 8px !important;
+  color: var(--color-primary-text) !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+}
+
+.modal-stat {
+  min-height: 94px !important;
+}
+
+
+/* Keep short event labels from awkwardly wrapping. */
+.event-card,
+.teacher .event-card {
+  white-space: nowrap !important;
+  min-width: 260px !important;
+}
+
+.event-card b,
+.teacher .event-card b,
+#eventText {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+@media (max-width: 900px) {
+  .event-card,
+  .teacher .event-card {
+    white-space: normal !important;
+  }
+}
+
+
+/* Submission list: numeric team order and panel-local scrolling. */
+.submission-panel {
+  min-height: 0 !important;
+}
+
+.submission-panel #submissionList,
+#submissionList.submission-list {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: 112px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: grid !important;
+  gap: 6px !important;
+  padding: 8px 10px 10px !important;
+  scrollbar-gutter: stable !important;
+}
+
+.submission-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-height: 30px !important;
+  padding: 6px 8px !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.submission-row span {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.submission-row b {
+  justify-self: end !important;
+  white-space: nowrap !important;
+}
+
+
+/* Right dashboard should scroll as one classroom sidebar. */
+.rightbar,
+.teacher .rightbar {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  min-height: 0 !important;
+  padding: 8px !important;
+  scrollbar-gutter: stable !important;
+}
+
+.rightbar .panel,
+.teacher .rightbar .panel {
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.rightbar .panel:first-child,
+.teacher .rightbar .panel:first-child {
+  max-height: none !important;
+}
+
+#detailStats,
+#submissionList,
+#diplomacyList,
+#logList,
+#rankList {
+  max-height: none !important;
+}
+
+#detailStats,
+#diplomacyList,
+#rankList {
+  overflow: visible !important;
+}
+
+#logList {
+  max-height: 160px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.submission-panel #submissionList,
+#submissionList.submission-list {
+  max-height: 126px !important;
+  overflow-y: auto !important;
+}
+
+.teacher-main {
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+
+/* Professional classroom UI pass: BOOONG-aligned layout and density. */
+body,
+.setup,
+.teacher,
+.student,
+.teacher .map,
+.student .map,
+.teacher-main,
+.student-main {
+  background-image: none !important;
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans), "Noto Sans KR", system-ui, sans-serif !important;
+}
+
+body::before,
+body::after,
+.setup::before,
+.setup::after,
+.teacher .map::before,
+.teacher .map::after,
+.student .map::before,
+.student .map::after {
+  display: none !important;
+  content: none !important;
+}
+
+.hidden { display: none !important; }
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit !important;
+}
+
+button {
+  min-height: 32px !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-medium) !important;
+  padding: 0 16px !important;
+  cursor: pointer !important;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+button:disabled {
+  background: var(--color-surface-subtle) !important;
+  color: var(--color-text-tertiary) !important;
+  border-color: var(--color-border) !important;
+  cursor: not-allowed !important;
+}
+
+button.primary,
+#startTeacher,
+#startStudent,
+#confirmTeamsBtn,
+#nextPhaseBtn,
+#finalPresentationBtn,
+#submitAction,
+#confirmSubmitActionBtn {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+button.danger,
+#resetSessionBtn,
+#clearResumeBtn,
+#clearConfig {
+  border-color: var(--color-error-border) !important;
+  color: var(--color-error-text) !important;
+  background: var(--color-error-subtle) !important;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-base) !important;
+  padding: 0 16px !important;
+}
+
+textarea { padding: 16px !important; }
+
+.muted,
+.entry-help,
+.detail-meta,
+.team-meta-line,
+.home-kicker,
+.tool-label {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-regular) !important;
+}
+
+.panel,
+.start-card,
+.setup-card,
+.resume-box,
+.student-guide,
+.country-intel-panel,
+.result-box,
+.action,
+.resource {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: none !important;
+  color: var(--color-text-primary) !important;
+}
+
+.panel-title,
+.start-card h2,
+.setup-card h2,
+.student-guide b,
+.checklist-panel .panel-title {
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-base) !important;
+  font-weight: var(--weight-bold) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Entry page */
+.setup {
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  padding: 48px 24px !important;
+  min-height: 100vh !important;
+}
+
+.home-hero {
+  text-align: center !important;
+  margin: 0 0 32px !important;
+}
+
+.home-logo {
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-2xl) !important;
+  font-weight: var(--weight-bold) !important;
+  letter-spacing: 0 !important;
+  margin: 8px 0 !important;
+}
+
+.home-logo span { color: var(--color-primary-text) !important; }
+
+.home-hero p {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-base) !important;
+  font-weight: var(--weight-regular) !important;
+  margin: 0 auto !important;
+  max-width: 640px !important;
+}
+
+.notice {
+  order: 20 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  text-align: center !important;
+  margin: 16px 0 0 !important;
+  padding: 0 !important;
+}
+
+.entry-steps {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin: 0 0 32px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.entry-steps span {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 32px !important;
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-medium) !important;
+  white-space: nowrap !important;
+}
+
+.entry-steps span::before {
+  display: grid !important;
+  place-items: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-secondary) !important;
+  flex: 0 0 24px !important;
+}
+
+.entry-steps span:nth-child(1)::before { content: "1" !important; background: var(--color-primary) !important; border-color: var(--color-primary) !important; color: var(--color-on-primary) !important; }
+.entry-steps span:nth-child(2)::before { content: "2" !important; }
+.entry-steps span:nth-child(3)::before { content: "3" !important; }
+.entry-steps span:nth-child(4)::before { content: "4" !important; }
+
+.entry-steps span:not(:last-child)::after {
+  content: "" !important;
+  position: absolute !important;
+  left: calc(100% - 8px) !important;
+  top: 50% !important;
+  width: 16px !important;
+  border-top: 1px dashed var(--color-border-strong) !important;
+}
+
+.start-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+.start-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  padding: 24px !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.entry-card-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.entry-role,
+.role-pill,
+.state-chip,
+.submission-badge,
+.title-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 24px !important;
+  padding: 0 8px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--color-primary) !important;
+  background: var(--color-primary-subtle, var(--color-surface-subtle)) !important;
+  color: var(--color-primary-text) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-medium) !important;
+  white-space: nowrap !important;
+}
+
+.start-card label {
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.start-card input {
+  width: 100% !important;
+  height: 48px !important;
+}
+
+.start-card > button,
+#startTeacher,
+#startStudent {
+  width: 100% !important;
+  min-height: 52px !important;
+  font-size: var(--text-base) !important;
+}
+
+.entry-inline {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 8px !important;
+}
+
+.entry-divider {
+  color: var(--color-text-tertiary) !important;
+  font-size: var(--text-xs) !important;
+  text-align: center !important;
+  margin: 4px 0 !important;
+}
+
+.setup-actions {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 24px !important;
+}
+
+.settings-toggle {
+  min-height: auto !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-xs) !important;
+  padding: 8px !important;
+}
+
+#settingsPanel {
+  margin-top: 16px !important;
+  padding: 24px !important;
+}
+
+/* Teacher dashboard */
+.teacher {
+  height: 100vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.teacher .topbar {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  min-height: 64px !important;
+  padding: 0 16px !important;
+  background: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.teacher .logo { order: 1 !important; color: var(--color-text-primary) !important; font-size: var(--text-lg) !important; font-weight: var(--weight-bold) !important; letter-spacing: 0 !important; }
+.teacher .logo span { color: var(--color-primary-text) !important; }
+.teacher .turn { order: 2 !important; color: var(--color-text-primary) !important; font-size: var(--text-base) !important; font-weight: var(--weight-medium) !important; white-space: nowrap !important; }
+#teacherSessionState { order: 3 !important; display: flex !important; gap: 8px !important; }
+.teacher .topbar > .spacer { order: 4 !important; flex: 1 1 auto !important; }
+.teacher .timer { order: 5 !important; color: var(--color-error-text) !important; font-size: 28px !important; font-weight: var(--weight-bold) !important; min-width: 88px !important; text-align: right !important; }
+.teacher .phase { order: 6 !important; position: static !important; transform: none !important; border: 0 !important; background: transparent !important; color: var(--color-text-primary) !important; font-size: var(--text-xl) !important; font-weight: var(--weight-bold) !important; padding: 0 !important; white-space: nowrap !important; }
+.teacher .phase::before,
+.teacher .phase::after { display: none !important; }
+
+.state-chip.open,
+.state-chip.done,
+.submission-badge.done { border-color: var(--color-success-border) !important; background: var(--color-success-subtle) !important; color: var(--color-success-text) !important; }
+.state-chip.locked,
+.state-chip.wait,
+.submission-badge.wait { border-color: var(--color-warning-border) !important; background: var(--color-warning-subtle) !important; color: var(--color-warning-text) !important; }
+
+.teacher-main {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-columns: 280px minmax(520px, 1fr) 360px !important;
+  gap: 0 !important;
+  overflow: hidden !important;
+  padding-bottom: 56px !important;
+}
+
+.teacher aside.left,
+.teacher .rightbar {
+  background: var(--color-surface) !important;
+  border-color: var(--color-border) !important;
+  min-height: 0 !important;
+}
+
+.teacher aside.left {
+  overflow-y: auto !important;
+  padding: 12px !important;
+}
+
+.teacher .rightbar {
+  height: calc(100vh - 120px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 8px !important;
+}
+
+.teacher .rightbar .panel,
+.teacher-task-panel {
+  flex: 0 0 auto !important;
+  padding: 12px !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.teacher-task-panel {
+  background: var(--color-primary-subtle, var(--color-surface)) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.teacher-task-panel ul {
+  margin: 8px 0 0 16px !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  line-height: 1.45 !important;
+}
+
+.teacher-task-panel li + li { margin-top: 4px !important; }
+
+.teacher .map {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 12px 24px 16px !important;
+  border-left: 1px solid var(--color-border) !important;
+  border-right: 1px solid var(--color-border) !important;
+}
+
+.teacher-map-title {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-medium) !important;
+  letter-spacing: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.teacher .event-card.is-empty { display: none !important; }
+.teacher .event-card {
+  position: static !important;
+  width: 100% !important;
+  min-height: 36px !important;
+  margin-bottom: 8px !important;
+  padding: 8px 12px !important;
+  background: var(--color-warning-subtle) !important;
+  border: 1px solid var(--color-warning-border) !important;
+  color: var(--color-warning-text) !important;
+  font-size: var(--text-sm) !important;
+}
+
+.teacher .hex-map {
+  flex: 1 1 auto !important;
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+.teacher .phase-guide,
+.teacher .summary-panel {
+  display: none !important;
+}
+
+.country-card {
+  padding: 10px 12px !important;
+  margin-bottom: 8px !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface) !important;
+  cursor: pointer !important;
+}
+
+.country-card.selected-team {
+  border-color: var(--color-primary) !important;
+  background: var(--color-primary-subtle, var(--color-surface-subtle)) !important;
+}
+
+.country-row {
+  display: grid !important;
+  grid-template-columns: 10px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.presence-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 999px !important;
+  background: var(--color-text-tertiary) !important;
+}
+.presence-dot.online { background: var(--color-success) !important; }
+.team-name { min-width: 0 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; font-size: var(--text-sm) !important; font-weight: var(--weight-semibold) !important; color: var(--color-text-primary) !important; }
+.team-score { font-size: var(--text-sm) !important; font-weight: var(--weight-bold) !important; color: var(--color-text-primary) !important; }
+.team-meta-line { display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 8px !important; margin-top: 8px !important; }
+
+.submission-panel #submissionList,
+#submissionList.submission-list {
+  max-height: 128px !important;
+  overflow-y: auto !important;
+  display: grid !important;
+  gap: 8px !important;
+  padding: 8px 0 0 !important;
+}
+
+.submission-row {
+  min-height: 32px !important;
+  padding: 4px 8px !important;
+  background: var(--color-surface-subtle) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.phase-box {
+  display: flex !important;
+  gap: 4px !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+}
+
+.phase-step,
+.phase-box button {
+  flex: 1 0 auto !important;
+  white-space: nowrap !important;
+  min-height: 32px !important;
+}
+
+#logList {
+  max-height: 160px !important;
+  overflow-y: auto !important;
+}
+
+.teacher .topbar-tools {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  min-height: 56px !important;
+  padding: 8px 16px !important;
+  background: var(--color-surface) !important;
+  border-top: 1px solid var(--color-border) !important;
+}
+
+.tool-group {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.tool-group:not(:last-child)::after {
+  content: "" !important;
+  width: 1px !important;
+  height: 20px !important;
+  background: var(--color-border) !important;
+  margin-left: 8px !important;
+}
+
+.teacher .topbar-tools button {
+  min-width: 64px !important;
+  min-height: 32px !important;
+  background: transparent !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+  font-size: 13px !important;
+}
+
+#nextPhaseBtn,
+#finalPresentationBtn { background: var(--color-primary) !important; border-color: var(--color-primary) !important; color: var(--color-on-primary) !important; }
+#resetSessionBtn { background: var(--color-error-subtle) !important; border-color: var(--color-error-border) !important; color: var(--color-error-text) !important; }
+
+/* Student page */
+.student {
+  height: 100vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.student .topbar {
+  min-height: 64px !important;
+  padding: 0 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  background: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.student .country-name { font-size: var(--text-lg) !important; font-weight: var(--weight-bold) !important; color: var(--color-text-primary) !important; }
+.student .phase { font-size: var(--text-lg) !important; font-weight: var(--weight-bold) !important; color: var(--color-text-primary) !important; background: transparent !important; border: 0 !important; padding: 0 !important; }
+.student .turn { color: var(--color-text-primary) !important; font-size: var(--text-base) !important; font-weight: var(--weight-medium) !important; white-space: nowrap !important; }
+.student .timer { margin-left: auto !important; color: var(--color-error-text) !important; font-size: 28px !important; font-weight: var(--weight-bold) !important; }
+
+.student-main {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-columns: minmax(520px, 1fr) 400px !important;
+  overflow: hidden !important;
+}
+
+.student .map {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 16px 24px !important;
+}
+
+.student .hex-map {
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+.student:not(.tile-selection-needed) .tile-info { display: none !important; }
+.student.tile-selection-needed .tile-info {
+  display: block !important;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-primary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.student-side {
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  background: var(--color-surface) !important;
+  border-left: 1px solid var(--color-border) !important;
+}
+
+.student-tabs {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  background: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.student-tab {
+  min-height: 44px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  white-space: nowrap !important;
+}
+
+.student-tab.active {
+  color: var(--color-primary-text) !important;
+  border-bottom: 2px solid var(--color-primary) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+.side-content {
+  padding: 16px !important;
+}
+
+.student-phase-guide {
+  display: grid !important;
+  gap: 4px !important;
+  margin-bottom: 16px !important;
+  padding: 16px !important;
+  background: var(--color-primary-subtle, var(--color-surface-subtle)) !important;
+  border: 1px solid var(--color-primary) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.student-phase-guide b {
+  font-size: var(--text-base) !important;
+  font-weight: var(--weight-bold) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.student-phase-guide span {
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-regular) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.resource-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.resource {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  min-height: 124px !important;
+  padding: 16px !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.resource .change { order: 1 !important; font-size: var(--text-xs) !important; font-weight: var(--weight-regular) !important; color: var(--color-text-secondary) !important; }
+.resource .num { order: 2 !important; font-size: var(--text-xl) !important; font-weight: var(--weight-bold) !important; color: var(--color-text-primary) !important; }
+.resource .bar { order: 3 !important; }
+.resource h3 { order: 4 !important; align-self: flex-start !important; margin: 0 !important; padding: 2px 8px !important; border: 1px solid var(--color-border) !important; border-radius: 999px !important; color: var(--color-text-secondary) !important; font-size: var(--text-xs) !important; font-weight: var(--weight-medium) !important; }
+
+.action {
+  padding: 16px !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.action.selected {
+  border-color: var(--color-primary) !important;
+  background: var(--color-primary-subtle, var(--color-surface-subtle)) !important;
+}
+
+.action.filtered-out { display: none !important; }
+
+.chatbar,
+.action-submit-bar,
+.student-bottom,
+#actionResultBox {
+  position: sticky !important;
+  bottom: 0 !important;
+  background: var(--color-surface) !important;
+  border-top: 1px solid var(--color-border) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.bar {
+  background: var(--color-surface-subtle) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+}
+
+.bar span.yellow { background: var(--color-warning) !important; }
+.bar span.green { background: var(--color-success) !important; }
+.bar span.pink,
+.bar span.purple { background: var(--color-error) !important; }
+.bar span.cyan { background: var(--color-primary) !important; }
+
+@media (max-width: 1180px) {
+  .teacher-main { grid-template-columns: 240px minmax(420px, 1fr) 340px !important; }
+  .student-main { grid-template-columns: minmax(420px, 1fr) 360px !important; }
+}
+
+@media (max-width: 760px) {
+  .setup { padding: 32px 16px !important; }
+  .entry-steps { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .entry-steps span:not(:last-child)::after { display: none !important; }
+  .start-grid { grid-template-columns: 1fr !important; }
+  .teacher,
+  .student { height: auto !important; min-height: 100vh !important; overflow: visible !important; }
+  .teacher-main,
+  .student-main { grid-template-columns: 1fr !important; overflow: visible !important; padding-bottom: 0 !important; }
+  .teacher .topbar-tools { position: static !important; flex-wrap: wrap !important; }
+  .student-side,
+  .teacher .rightbar { height: auto !important; overflow: visible !important; }
+}
+
+
+/* Page isolation and overlap cleanup. */
+#setup:not(.hidden) ~ #teacherUI,
+#setup:not(.hidden) ~ #studentUI,
+#teacherUI:not(.hidden) ~ #studentUI,
+#teacherUI.hidden,
+#studentUI.hidden,
+#setup.hidden,
+.teacher.hidden .topbar-tools,
+.teacher.hidden .bottom,
+.teacher.hidden #teacherChecklist,
+.student.hidden .chatbar {
+  display: none !important;
+}
+
+#setup:not(.hidden) {
+  display: block !important;
+}
+
+#setup:not(.hidden) .teacher-task-panel,
+#setup:not(.hidden) .topbar-tools,
+#setup:not(.hidden) .bottom,
+#setup:not(.hidden) .student-side,
+#setup:not(.hidden) .rightbar {
+  display: none !important;
+}
+
+.setup .notice.ok {
+  display: none !important;
+}
+
+.teacher .rightbar #teacherChecklist,
+.teacher .rightbar .teacher-task-panel {
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  transform: none !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.teacher .map,
+.student .map {
+  gap: 12px !important;
+}
+
+.teacher .hex-map,
+.student .hex-map,
+#teacherHex,
+#studentHex {
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 8px auto 0 !important;
+  transform: none !important;
+}
+
+.teacher .legend,
+.student .legend,
+#mapLegend,
+#studentLegend {
+  position: static !important;
+  inset: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  z-index: 1 !important;
+  order: 20 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px 12px !important;
+  width: fit-content !important;
+  max-width: min(100%, 720px) !important;
+  margin: 12px auto 0 !important;
+  padding: 8px 12px !important;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--color-text-primary) !important;
+  white-space: normal !important;
+}
+
+.teacher .map-tools,
+.student .map-tools {
+  position: static !important;
+  order: 0 !important;
+  width: 100% !important;
+  margin: 0 0 4px !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.teacher-map-title {
+  position: static !important;
+  order: 0 !important;
+  margin: 0 !important;
+}
+
+.student .tile-info {
+  position: static !important;
+  order: 30 !important;
+  width: min(100%, 360px) !important;
+  margin: 0 auto !important;
+}
+
+.teacher .topbar-tools {
+  box-sizing: border-box !important;
+}
+
+.teacher:not(.hidden) .topbar-tools {
+  display: flex !important;
+}
+
+.student:not(.hidden) .chatbar {
+  display: flex !important;
+}
+
+
+/* Map legend and selected tile polish. */
+.teacher .map,
+.student .map {
+  overflow: auto !important;
+  align-content: start !important;
+}
+
+.teacher .hex-map,
+.student .hex-map,
+#teacherHex,
+#studentHex {
+  flex: 0 0 auto !important;
+  order: 10 !important;
+  margin: 8px auto 0 !important;
+  padding: 8px 10px 12px !important;
+}
+
+.teacher .legend,
+.student .legend,
+#mapLegend,
+#studentLegend {
+  order: 20 !important;
+  flex: 0 0 auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 36px !important;
+  margin: 8px auto 0 !important;
+  overflow: visible !important;
+}
+
+.legend span,
+#mapLegend span,
+#studentLegend span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-medium) !important;
+  white-space: nowrap !important;
+}
+
+.strategic-legend {
+  color: var(--color-warning-text) !important;
+}
+
+.student .map-tools span {
+  display: none !important;
+}
+
+#studentHex .hex.selected-tile {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: -2px !important;
+  filter: none !important;
+}
+
+#studentHex .hex.selected-tile::after {
+  top: 7px !important;
+  right: 8px !important;
+  width: 14px !important;
+  height: 14px !important;
+  font-size: 10px !important;
+  line-height: 14px !important;
+  border-radius: 999px !important;
+  background: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+  box-shadow: 0 0 0 1px var(--color-surface) !important;
+}
+
+
+/* Student phase guide should read as guidance, not a button. */
+.student-phase-guide,
+.student .student-phase-guide,
+#studentPhaseGuide {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  margin: 0 0 16px !important;
+  padding: 12px 14px !important;
+  border: 1px solid var(--color-border) !important;
+  border-left: 4px solid var(--color-primary) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface) !important;
+  box-shadow: none !important;
+  color: var(--color-text-primary) !important;
+}
+
+.student-phase-guide b,
+#studentPhaseGuide b {
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-bold) !important;
+  line-height: 1.3 !important;
+  white-space: normal !important;
+}
+
+.student-phase-guide span,
+#studentPhaseGuide span {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.45 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+
+/* Compact teacher ranking panel, clear of the fixed session bar. */
+.teacher .rightbar {
+  padding-bottom: 72px !important;
+}
+
+.teacher .rightbar .panel:last-child {
+  margin-bottom: 8px !important;
+}
+
+#rankList {
+  display: grid !important;
+  gap: 6px !important;
+  padding: 8px 10px 12px !important;
+  overflow: visible !important;
+}
+
+.rank-row,
+.teacher .rank-row {
+  display: grid !important;
+  grid-template-columns: 18px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 28px !important;
+  padding: 4px 0 !important;
+  margin: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  line-height: 1.3 !important;
+}
+
+.rank-row .flag,
+.teacher .rank-row .flag,
+.rank-row .spacer,
+.teacher .rank-row .spacer {
+  display: none !important;
+}
+
+.rank-row > b:first-child,
+.teacher .rank-row > b:first-child {
+  color: var(--color-primary-text) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-medium) !important;
+  text-align: right !important;
+}
+
+.rank-row > span:not(.flag):not(.spacer),
+.teacher .rank-row > span:not(.flag):not(.spacer) {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.rank-row .score-value,
+.teacher .rank-row .score-value {
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-bold) !important;
+  text-align: right !important;
+}
+
+
+/* Entry step indicator spacing refinement. */
+.entry-steps {
+  gap: 24px !important;
+  margin: 0 auto 32px !important;
+  max-width: 860px !important;
+}
+
+.entry-steps span {
+  justify-content: center !important;
+  gap: 10px !important;
+  min-height: 44px !important;
+  padding: 0 14px !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.entry-steps span:not(:last-child)::after {
+  left: calc(100% + 4px) !important;
+  width: 16px !important;
+  border-top-color: var(--color-border-strong) !important;
+}
+
+@media (max-width: 760px) {
+  .entry-steps {
+    max-width: none !important;
+    gap: 8px !important;
+  }
+}
+
+
+/* Classroom flow cleanup: calmer copy surfaces and fewer decorative cues. */
+.home-kicker {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-medium) !important;
+  letter-spacing: 0 !important;
+}
+
+.home-hero p,
+.start-card p,
+.entry-help,
+.confirm-note,
+.student-guide li,
+.chatbar .muted {
+  word-break: keep-all !important;
+  line-height: 1.55 !important;
+}
+
+.student-guide {
+  padding: 14px !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface-subtle) !important;
+}
+
+.student-guide ol {
+  margin: 8px 0 0 18px !important;
+  padding: 0 !important;
+}
+
+.student-guide li {
+  padding: 3px 0 !important;
+  font-size: var(--text-sm) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.student-guide li.active {
+  color: var(--color-primary-text) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+.student-guide li.done {
+  color: var(--color-success-text) !important;
+}
+
+#phaseGuide,
+#teacherSummaryPanel {
+  display: none !important;
+}
+
+.teacher-task-panel {
+  background: var(--color-surface-subtle) !important;
+  border-color: var(--color-border) !important;
+  border-left: 4px solid var(--color-primary) !important;
+}
+
+.teacher-task-panel .panel-title {
+  min-height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.teacher-task-panel ul {
+  margin-top: 8px !important;
+}
+
+.ops-box {
+  background: var(--color-surface-subtle) !important;
+  border-color: var(--color-border) !important;
+}
+
+.ops-box summary {
+  color: var(--color-text-secondary) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.modal {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.modal h2 {
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-xl) !important;
+  letter-spacing: 0 !important;
+}
+
+.modal .type-name {
+  color: var(--color-primary-text) !important;
+  font-size: var(--text-lg) !important;
+}
+
+.modal-stat {
+  background: var(--color-surface-subtle) !important;
+  border-color: var(--color-border) !important;
+}
+
+.modal-tip {
+  background: var(--color-surface-subtle) !important;
+  border-left-color: var(--color-primary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.presentation-hero,
+.presentation-card,
+.final-card {
+  background: var(--color-surface-subtle) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: none !important;
+}
+
+.presentation-hero strong,
+.presentation-rank,
+.final-card .place {
+  color: var(--color-primary-text) !important;
+}
+
+.title-badge {
+  background: var(--color-surface) !important;
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-text-primary) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.chatbar {
+  gap: 8px !important;
+}
+
+.chat-badge {
+  background: var(--color-surface-subtle) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+
+/* Entry resume card should breathe before setup steps. */
+.resume-box {
+  margin: 20px auto 32px !important;
+  max-width: 860px !important;
+}
+
+.resume-box + .entry-steps {
+  margin-top: 0 !important;
+}
+
+.entry-steps {
+  margin-bottom: 40px !important;
+}
+
+
+/* Resource card strategy tips for hover, focus, and touch. */
+.resource-tip {
+  position: relative !important;
+  cursor: help !important;
+  outline: none !important;
+}
+
+.resource-tip::after {
+  content: attr(data-tip) !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: calc(100% + 8px) !important;
+  z-index: 30 !important;
+  width: max-content !important;
+  min-width: 260px !important;
+  max-width: min(320px, calc(100vw - 48px)) !important;
+  padding: 10px 12px !important;
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: var(--shadow-lg) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.55 !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(4px) !important;
+  pointer-events: none !important;
+  transition: opacity .12s ease, transform .12s ease, visibility .12s ease !important;
+}
+
+.resource-tip::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 24px !important;
+  bottom: calc(100% + 2px) !important;
+  z-index: 31 !important;
+  width: 10px !important;
+  height: 10px !important;
+  background: var(--color-surface) !important;
+  border-right: 1px solid var(--color-border-strong) !important;
+  border-bottom: 1px solid var(--color-border-strong) !important;
+  transform: rotate(45deg) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity .12s ease, visibility .12s ease !important;
+}
+
+.resource-tip:hover,
+.resource-tip:focus-visible,
+.resource-tip:focus {
+  border-color: var(--color-primary) !important;
+}
+
+.resource-tip:hover::after,
+.resource-tip:focus-visible::after,
+.resource-tip:focus::after,
+.resource-tip:hover::before,
+.resource-tip:focus-visible::before,
+.resource-tip:focus::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.resource-grid {
+  overflow: visible !important;
+}
+
+.student-pane[data-pane="resources"] {
+  overflow: visible !important;
+}
+
+.resource-grid .resource-tip:nth-child(2n)::after {
+  left: auto !important;
+  right: 0 !important;
+}
+
+.resource-grid .resource-tip:nth-child(2n)::before {
+  left: auto !important;
+  right: 24px !important;
+}
+
+
+/* Compact teacher country cards without broken vertical labels. */
+.teacher .country-card {
+  padding: 12px !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.teacher .country-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+
+.teacher .team-card-name {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-lg) !important;
+  font-weight: var(--weight-bold) !important;
+  line-height: 1.2 !important;
+  word-break: keep-all !important;
+}
+
+.teacher .country-card .score {
+  margin-left: 0 !important;
+  flex: 0 0 auto !important;
+  min-width: 48px !important;
+  height: 30px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid var(--color-success-border) !important;
+  border-radius: var(--radius-full) !important;
+  background: var(--color-success-subtle) !important;
+  color: var(--color-success-text) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-bold) !important;
+  white-space: nowrap !important;
+}
+
+.teacher .country-card .team-meta {
+  font-size: var(--text-xs) !important;
+  line-height: 1.45 !important;
+  word-break: keep-all !important;
+}
+
+
+/* Larger classroom maps and non-clipping student status bar. */
+.teacher .map,
+.student .map {
+  justify-content: center !important;
+  padding: 16px 24px 24px !important;
+}
+
+.teacher .hex-map,
+.student .hex-map,
+#teacherHex,
+#studentHex {
+  grid-template-columns: repeat(12, 66px) !important;
+  grid-auto-rows: 56px !important;
+  gap: 0 !important;
+  justify-content: center !important;
+  align-content: center !important;
+  max-width: 100% !important;
+  padding: 8px 12px 16px !important;
+  overflow: visible !important;
+}
+
+.teacher .hex,
+.student .hex,
+.hex {
+  width: 68px !important;
+  height: 60px !important;
+  font-size: 12px !important;
+  line-height: 1.05 !important;
+}
+
+.hex.named {
+  font-size: 11px !important;
+}
+
+.student .legend,
+.teacher .legend,
+#studentLegend,
+#mapLegend {
+  margin-top: 16px !important;
+}
+
+.student .chatbar {
+  display: grid !important;
+  grid-template-columns: auto minmax(88px, auto) minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 56px !important;
+  padding: 8px 12px !important;
+  font-size: var(--text-xs) !important;
+}
+
+.student .chatbar > span:first-child,
+.student .chatbar .chat-badge {
+  white-space: nowrap !important;
+}
+
+.student .chatbar .muted {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  line-height: 1.35 !important;
+}
+
+@media (max-width: 1400px) {
+  .teacher .hex-map,
+  .student .hex-map,
+  #teacherHex,
+  #studentHex {
+    grid-template-columns: repeat(12, 60px) !important;
+    grid-auto-rows: 52px !important;
+  }
+
+  .teacher .hex,
+  .student .hex,
+  .hex {
+    width: 62px !important;
+    height: 55px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .teacher .hex-map,
+  .student .hex-map,
+  #teacherHex,
+  #studentHex {
+    grid-template-columns: repeat(12, 54px) !important;
+    grid-auto-rows: 48px !important;
+  }
+
+  .teacher .hex,
+  .student .hex,
+  .hex {
+    width: 56px !important;
+    height: 50px !important;
+  }
+}
+
+
+/* Polished territory-map scale and caption. */
+.teacher .map,
+.student .map {
+  padding: 20px 28px 28px !important;
+}
+
+.teacher-map-title,
+.student .map-tools {
+  position: absolute !important;
+  top: 20px !important;
+  left: 28px !important;
+  right: auto !important;
+  z-index: 4 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: auto !important;
+  min-height: 32px !important;
+  padding: 6px 12px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-full) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: none !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-bold) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+.teacher-map-title::before,
+.student .map-tools b::before {
+  content: "" !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 999px !important;
+  background: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px var(--color-primary-subtle) !important;
+}
+
+.student .map-tools b {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: var(--color-text-primary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-bold) !important;
+}
+
+.student .map-tools span {
+  display: none !important;
+}
+
+.teacher .hex-map,
+.student .hex-map,
+#teacherHex,
+#studentHex {
+  grid-template-columns: repeat(12, 72px) !important;
+  grid-auto-rows: 62px !important;
+  column-gap: 4px !important;
+  row-gap: 5px !important;
+  margin-top: 82px !important;
+  padding: 4px 16px 18px !important;
+}
+
+.teacher .hex,
+.student .hex,
+.hex {
+  width: 72px !important;
+  height: 64px !important;
+}
+
+.teacher .legend,
+.student .legend,
+#mapLegend,
+#studentLegend {
+  margin-top: 22px !important;
+}
+
+@media (max-width: 1400px) {
+  .teacher .hex-map,
+  .student .hex-map,
+  #teacherHex,
+  #studentHex {
+    grid-template-columns: repeat(12, 64px) !important;
+    grid-auto-rows: 56px !important;
+    column-gap: 3px !important;
+    row-gap: 4px !important;
+  }
+
+  .teacher .hex,
+  .student .hex,
+  .hex {
+    width: 64px !important;
+    height: 57px !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .teacher .hex-map,
+  .student .hex-map,
+  #teacherHex,
+  #studentHex {
+    grid-template-columns: repeat(12, 58px) !important;
+    grid-auto-rows: 51px !important;
+  }
+
+  .teacher .hex,
+  .student .hex,
+  .hex {
+    width: 58px !important;
+    height: 52px !important;
+  }
+}

@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PoliStrat</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/vendor/booong.css" />
+  <link rel="stylesheet" href="./css/style.css?v=20260510-polistrat-flow8" />
 </head>
 <body>
 <section id="setup" class="setup">
@@ -34,7 +35,7 @@
         <input id="teacherPin" type="password" inputmode="numeric" maxlength="4" placeholder="교사용 PIN 4자리">
         <button id="startTeacher" class="primary start-teacher-btn">교사 화면 시작</button>
         <label class="u-mt-md">기존 세션 코드</label>
-        <input id="teacherSessionCode" maxlength="6" placeholder="복구할 6자리 코드">
+        <input id="teacherSessionCode" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="복구할 6자리 숫자 코드">
         <button id="resumeTeacherByCodeBtn" class="u-mt-sm">기존 교사 세션 열기</button>
       </div>
 
@@ -42,7 +43,7 @@
         <h2>학생 모둠용 화면</h2>
         <p class="muted">4인 1모둠이 태블릿 1대로 토론하며 공동으로 행동을 선택하고 제출합니다.</p>
         <label>참가 코드</label>
-        <input id="joinCode" maxlength="6" placeholder="교사가 만든 6자리 코드">
+        <input id="joinCode" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="교사가 만든 6자리 숫자 코드">
         <label class="u-mt-sm">국가/모둠 이름</label>
         <input id="teamName" placeholder="예: 미국 / 1모둠">
         <p class="muted u-mt-sm">국가 유형은 참가 시 자동으로 랜덤 배정됩니다.</p>
@@ -135,7 +136,7 @@
         <div id="countryCards"></div>
       </aside>
       <section class="map">
-        <div class="teacher-map-title">WORLD TERRITORY MAP - REALTIME SESSION</div>
+        <div class="teacher-map-title">영토 지도</div>
         <div id="eventCard" class="event-card"><b>현재 이벤트</b><br><span id="eventText">없음</span></div>
         <div id="teacherChecklist" class="checklist-panel">
           <b>진행 체크리스트</b>
@@ -179,7 +180,7 @@
     </header>
     <main class="student-main">
       <section class="map">
-        <div class="map-tools"><b>세계 지도</b></div>
+        <div class="map-tools"><b>영토 지도</b></div>
         <div id="studentHex" class="hex-map"></div>
 <div id="studentLegend" class="legend"></div>
         <div class="tile-info">
@@ -208,12 +209,12 @@
           <div class="panel-title">국가 현황 · 행동 선택</div>
           <section class="student-pane active" data-pane="resources">
             <div class="resource-grid">
-            <div class="resource"><h3>GDP / 예산</h3><div id="sGdp" class="num">100 / 40</div><div class="bar"><span id="sGdpBar" class="yellow" style="width:70%"></span></div><div class="change up">실시간 반영</div></div>
-            <div class="resource"><h3>군사력</h3><div id="sMil" class="num">50</div><div class="bar"><span id="sMilBar" class="pink" style="width:50%"></span></div><div class="change up">행동 제출 가능</div></div>
-            <div class="resource"><h3>외교 포인트</h3><div id="sDip" class="num">30</div><div class="bar"><span id="sDipBar" class="cyan" style="width:45%"></span></div><div class="change down">협상 비용 소모</div></div>
-            <div class="resource"><h3>국정 지지율</h3><div id="sSupport" class="num">60%</div><div class="bar"><span id="sSupportBar" class="purple" style="width:60%"></span></div><div class="change up">이벤트 영향</div></div>
-            <div class="resource"><h3>식량 자급률</h3><div id="sFood" class="num">70%</div><div class="bar"><span id="sFoodBar" class="green" style="width:70%"></span></div><div class="change down">위기 대응 필요</div></div>
-            <div class="resource"><h3>에너지 자립도</h3><div id="sEnergy" class="num">50%</div><div class="bar"><span id="sEnergyBar" class="pink" style="width:50%"></span></div><div class="change down">무역 협정 필요</div></div>
+            <div class="resource resource-tip" tabindex="0" data-tip="국가의 생산력과 행동에 쓸 예산입니다. 산업 투자, 무역 협정으로 키우세요."><h3>GDP / 예산</h3><div id="sGdp" class="num">100 / 40</div><div class="bar"><span id="sGdpBar" class="yellow" style="width:70%"></span></div><div class="change up">현재값</div></div>
+            <div class="resource resource-tip" tabindex="0" data-tip="영토 점령과 억제력의 기반입니다. 군비 증강, 방어 태세로 안정적으로 올리세요."><h3>군사력</h3><div id="sMil" class="num">50</div><div class="bar"><span id="sMilBar" class="pink" style="width:50%"></span></div><div class="change up">행동 자원</div></div>
+            <div class="resource resource-tip" tabindex="0" data-tip="협상, 협정, 외교 행동에 쓰는 자원입니다. 정상회담, 무역 협정으로 외교력을 높이세요."><h3>외교 포인트</h3><div id="sDip" class="num">30</div><div class="bar"><span id="sDipBar" class="cyan" style="width:45%"></span></div><div class="change down">외교 자원</div></div>
+            <div class="resource resource-tip" tabindex="0" data-tip="국내 여론과 정권 안정성입니다. 식량 확보, 방어 태세, 인도적 지원으로 유지하세요."><h3>국정 지지율</h3><div id="sSupport" class="num">60%</div><div class="bar"><span id="sSupportBar" class="purple" style="width:60%"></span></div><div class="change up">국내 안정</div></div>
+            <div class="resource resource-tip" tabindex="0" data-tip="장기전을 버티는 생존 자원입니다. 식량 확보를 우선하고, 식량 위기 이벤트를 경계하세요."><h3>식량 자급률</h3><div id="sFood" class="num">70%</div><div class="bar"><span id="sFoodBar" class="green" style="width:70%"></span></div><div class="change down">생존 자원</div></div>
+            <div class="resource resource-tip" tabindex="0" data-tip="산업과 협상의 핵심 자원입니다. 에너지 개발, 에너지 협정으로 위기를 줄이세요."><h3>에너지 자립도</h3><div id="sEnergy" class="num">50%</div><div class="bar"><span id="sEnergyBar" class="pink" style="width:50%"></span></div><div class="change down">무역 자원</div></div>
             </div>
             <div id="selectedCountryPanel" class="country-intel-panel">
               <b>타국 상세 현황</b>
@@ -312,6 +313,6 @@
     </div>
   </div>
 
-  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/main.js?v=20260510-polistrat-flow8"></script>
 </body>
 </html>

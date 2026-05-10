@@ -3,7 +3,7 @@ import {
   displayPhaseName,
   diplomacyTypes,
   phaseDescriptions
-} from "./data.js";
+} from "./data.js?v=20260510-polistrat-flow8";
 import {
   addDoc,
   addLog,
@@ -17,17 +17,17 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc
-} from "./firebase.js";
+} from "./firebase.js?v=20260510-polistrat-flow8";
 import {
   actionByName,
   checkAction,
   formatActionCosts,
   formatActionEffects,
   isStrategicIndex
-} from "./gameRules.js";
-import { isStrategicTile, redrawMaps, setActiveLayoutByTeamCount, watchTeamNames, watchTiles } from "./map.js";
-import { cleanup, state } from "./state.js";
-import { $, bar, displayName, fullCountryName, notice, renderSessionTimer, score, show, teamKeyForIndex, victoryTitles } from "./utils.js";
+} from "./gameRules.js?v=20260510-polistrat-flow8";
+import { isStrategicTile, redrawMaps, setActiveLayoutByTeamCount, watchTeamNames, watchTiles } from "./map.js?v=20260510-polistrat-flow8";
+import { cleanup, state } from "./state.js?v=20260510-polistrat-flow8";
+import { $, bar, displayName, fullCountryName, notice, renderSessionTimer, score, show, teamKeyForIndex, victoryTitles } from "./utils.js?v=20260510-polistrat-flow8";
 
 let sessionTeams = [];
 let sessionDiplomacy = [];

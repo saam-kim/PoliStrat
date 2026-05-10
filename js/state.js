@@ -1,4 +1,4 @@
-import { layout, studentLayout } from "./data.js";
+import { layout, studentLayout } from "./data.js?v=20260510-polistrat-flow8";
 
 export const state = {
   app: null,
