@@ -1,10 +1,10 @@
-import { bindStudentEvents, watchStudent } from "./student.js?v=20260510-polistrat-flow11";
-import { bindTeacherEvents, watchTeacher } from "./teacher.js?v=20260510-polistrat-flow11";
-import { doc, getDoc, initFirebase } from "./firebase.js?v=20260510-polistrat-flow11";
-import { redrawMaps } from "./map.js?v=20260510-polistrat-flow11";
-import { clearResume, getResume, renderResumeBox, saveResume } from "./resume.js?v=20260510-polistrat-flow11";
-import { cleanup, state } from "./state.js?v=20260510-polistrat-flow11";
-import { $, isTeacherPinValid, notice, parseConfig, renderSessionTimer, show } from "./utils.js?v=20260510-polistrat-flow11";
+import { bindStudentEvents, watchStudent } from "./student.js?v=20260511-polistrat-flow12";
+import { bindTeacherEvents, watchTeacher } from "./teacher.js?v=20260511-polistrat-flow12";
+import { doc, getDoc, initFirebase } from "./firebase.js?v=20260511-polistrat-flow12";
+import { redrawMaps } from "./map.js?v=20260511-polistrat-flow12";
+import { clearResume, getResume, renderResumeBox, saveResume } from "./resume.js?v=20260511-polistrat-flow12";
+import { cleanup, state } from "./state.js?v=20260511-polistrat-flow12";
+import { $, isTeacherPinValid, notice, parseConfig, renderSessionTimer, show } from "./utils.js?v=20260511-polistrat-flow12";
 
 async function resumeGame() {
   const data = getResume();

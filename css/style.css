@@ -4221,3 +4221,157 @@ textarea { padding: 16px !important; }
     margin-top: 288px !important;
   }
 }
+
+
+/* Teacher game-stage strip replaces the oversized phase guide card. */
+.teacher .map .stage-steps {
+  position: absolute !important;
+  top: 64px !important;
+  left: 260px !important;
+  right: 24px !important;
+  z-index: 6 !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(112px, 1fr)) !important;
+  gap: 10px !important;
+}
+
+.teacher .stage-step {
+  position: relative !important;
+  height: 58px !important;
+  padding: 8px 10px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  display: grid !important;
+  place-items: center !important;
+  align-content: center !important;
+  gap: 3px !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+.teacher .stage-step.active {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+}
+
+.teacher .stage-step strong {
+  font-size: var(--text-sm) !important;
+  font-weight: var(--weight-bold) !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+
+.teacher .stage-step span {
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+}
+
+.teacher .stage-step::after {
+  content: attr(data-tip) !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: calc(100% + 8px) !important;
+  z-index: 40 !important;
+  width: 260px !important;
+  max-width: 70vw !important;
+  padding: 10px 12px !important;
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: var(--shadow-lg) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.45 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  transform: translate(-50%, 4px) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity .12s ease, transform .12s ease, visibility .12s ease !important;
+}
+
+.teacher .stage-step:hover::after,
+.teacher .stage-step:focus-visible::after,
+.teacher .stage-step:focus::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, 0) !important;
+}
+
+.teacher .map .phase-guide,
+.teacher #phaseGuide {
+  display: none !important;
+}
+
+.teacher .map .checklist-panel,
+.teacher .map #teacherChecklist {
+  top: 136px !important;
+}
+
+.teacher .map .hex-map,
+.teacher #teacherHex {
+  margin-top: 218px !important;
+}
+
+@media (max-width: 1280px) {
+  .teacher .map .stage-steps {
+    left: 24px !important;
+    top: 64px !important;
+    grid-template-columns: repeat(3, minmax(112px, 1fr)) !important;
+  }
+
+  .teacher .map .checklist-panel,
+  .teacher .map #teacherChecklist {
+    top: 196px !important;
+  }
+
+  .teacher .map .hex-map,
+  .teacher #teacherHex {
+    margin-top: 320px !important;
+  }
+}
+
+
+/* Keep student resource tips away from the tab bar. */
+.student-side,
+.side-content,
+.student-pane[data-pane="resources"],
+.resource-grid {
+  overflow: visible !important;
+}
+
+.student-tabs {
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.resource-tip {
+  z-index: 1 !important;
+}
+
+.resource-tip:hover,
+.resource-tip:focus,
+.resource-tip:focus-visible {
+  z-index: 30 !important;
+}
+
+.resource-grid .resource-tip:nth-child(-n+2)::after {
+  top: calc(100% + 8px) !important;
+  bottom: auto !important;
+}
+
+.resource-grid .resource-tip:nth-child(-n+2)::before {
+  top: calc(100% + 2px) !important;
+  bottom: auto !important;
+  transform: rotate(225deg) !important;
+}

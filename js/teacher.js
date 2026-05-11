@@ -5,12 +5,11 @@ import {
   displayPhaseName,
   eventDefinitions,
   maxTurns,
-  phaseDescriptions,
   phaseDurations,
   phases,
   resourceLabels,
   teacherChecklist
-} from "./data.js?v=20260510-polistrat-flow11";
+} from "./data.js?v=20260511-polistrat-flow12";
 import {
   addDoc,
   addLog,
@@ -27,17 +26,17 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc
-} from "./firebase.js?v=20260510-polistrat-flow11";
-import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260510-polistrat-flow11";
+} from "./firebase.js?v=20260511-polistrat-flow12";
+import { actionByName, buildActionDelta, checkAction, formatDeltaSummary } from "./gameRules.js?v=20260511-polistrat-flow12";
 import {
   redrawMaps,
   setActiveLayoutByTeamCount,
   updateTeamNameMap,
   watchTeamNames,
   watchTiles
-} from "./map.js?v=20260510-polistrat-flow11";
-import { cleanup, state } from "./state.js?v=20260510-polistrat-flow11";
-import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260510-polistrat-flow11";
+} from "./map.js?v=20260511-polistrat-flow12";
+import { cleanup, state } from "./state.js?v=20260511-polistrat-flow12";
+import { $, bar, displayName, fullCountryName, isTeacherPinValid, randomCode, renderSessionTimer, score, show, victoryTitles } from "./utils.js?v=20260511-polistrat-flow12";
 
 let teacherTeamsCache = [];
 
@@ -131,6 +130,39 @@ function phaseDuration(phase) {
   return phaseDurations[displayPhaseName(phase)] || 180;
 }
 
+const stageGuideItems = [
+  {
+    phase: "전략회의",
+    title: "전략회의",
+    subtitle: "상황 파악과 목표 설정",
+    tip: "자원과 순위를 확인하고 이번 턴 목표 하나를 정하세요. 이벤트 위험도 함께 점검합니다."
+  },
+  {
+    phase: "외교 페이즈",
+    title: "외교",
+    subtitle: "협상과 협정 제안",
+    tip: "협상할 국가를 정하고 협정 조건을 조율하세요. 외교 행동을 제출할지 판단합니다."
+  },
+  {
+    phase: "행동 입력",
+    title: "행동 입력",
+    subtitle: "최종 행동 선택과 제출",
+    tip: "모둠의 최종 행동 하나를 선택해 제출하세요. 영토 행동은 대상 타일까지 확인합니다."
+  },
+  {
+    phase: "결과 처리",
+    title: "결과 확인",
+    subtitle: "변화 확인과 전략 수정",
+    tip: "자원 변화, 순위, 이벤트 효과를 확인하세요. 다음 턴에 보완할 전략을 정리합니다."
+  },
+  {
+    phase: "발표",
+    title: "발표",
+    subtitle: "전략 비교와 마무리",
+    tip: "최종 순위와 선택한 전략을 비교하고, 성공 요인과 아쉬운 선택을 발표합니다."
+  }
+];
+
 function renderSessionHealth(teams) {
   const box = $("sessionHealth");
   if (!box) return;
@@ -222,16 +254,6 @@ function renderFinalPresentation(teams) {
     </div>`;
 }
 
-function showPhaseGuide(phase) {
-  const guide = $("phaseGuide");
-  if (!guide) return;
-
-  const info = phaseDescriptions[displayPhaseName(phase)];
-  if (!info) return;
-
-  guide.innerHTML = `<b>${info.title}</b><br>${info.body}<div class="guide-keywords">${info.keywords}</div>`;
-}
-
 function renderPhaseSteps(phase) {
   if (!$("phaseSteps")) return;
 
@@ -239,13 +261,23 @@ function renderPhaseSteps(phase) {
   $("phaseSteps").innerHTML = phases
     .map((item) => `<div class="phase-step ${item === phaseName ? "active" : ""}" data-phase="${item}">${item}</div>`)
     .join("");
+}
 
-  document.querySelectorAll("#phaseSteps .phase-step").forEach((el) => {
-    el.addEventListener("mouseenter", () => showPhaseGuide(el.dataset.phase));
-    el.addEventListener("focus", () => showPhaseGuide(el.dataset.phase));
-  });
+function renderStageSteps(phase) {
+  const box = $("stageSteps");
+  if (!box) return;
 
-  showPhaseGuide(phaseName);
+  const phaseName = displayPhaseName(phase);
+  box.innerHTML = stageGuideItems
+    .map(
+      (item) => `<button type="button" class="stage-step ${item.phase === phaseName ? "active" : ""}" data-tip="${escapeHtml(
+        item.tip
+      )}">
+        <strong>${escapeHtml(item.title)}</strong>
+        <span>${escapeHtml(item.subtitle)}</span>
+      </button>`
+    )
+    .join("");
 }
 
 function renderSubmissions(teams) {
@@ -558,6 +590,7 @@ export function watchTeacher(code) {
         : "없음";
       renderSessionTimer(data);
       renderPhaseSteps(data.phase);
+      renderStageSteps(data.phase);
       renderTeamLockState();
       renderTeacherSessionState(data);
       renderTeacherChecklist(data.phase);
